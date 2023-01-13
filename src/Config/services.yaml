@@ -12,6 +12,7 @@ services:
     exclude:
       - '../**/Dto/*'
       - '../**/Exception/*'
+      - '../Generator/*'
 
   PhpInvariant\Command\:
     resource: '../Command/*'
