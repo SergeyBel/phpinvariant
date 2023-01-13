@@ -10,7 +10,7 @@ foreach ([__DIR__ . '/vendor/autoload.php', __DIR__ . '/../vendor/autoload.php',
     }
 }
 
-use PhpClassFuzz\Application\Application;
+use PhpInvariant\Application\Application;
 
 $app = new Application();
 $app->registerCommands();

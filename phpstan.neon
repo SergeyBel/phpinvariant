@@ -1,3 +1,4 @@
 parameters:
     level: 6
     inferPrivatePropertyTypeFromConstructor: true
+    checkGenericClassInNonGenericObjectType: false

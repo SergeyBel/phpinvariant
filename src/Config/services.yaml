@@ -9,6 +9,9 @@ services:
 
   PhpInvariant\:
     resource: '../*'
+    exclude:
+      - '../**/Dto/*'
+      - '../**/Exception/*'
 
   PhpInvariant\Command\:
     resource: '../Command/*'
