@@ -1,0 +1,29 @@
+{
+	"name": "sergey-bel/phpinvariant",
+	"description": "PHP property-based testing framework",
+	"authors": [
+		{
+			"name": "Sergey Belov"
+		}
+	],
+
+	"autoload": {
+        "psr-4": {
+		"PhpInvariant\\": "./src",
+		"PhpInvariant\\Tests\\": "./tests"
+		}
+    },
+	
+    "require": {
+		"symfony/dependency-injection": "^6.0",
+		"symfony/console": "^6.0",
+		"symfony/finder": "^6.0"
+	},
+	"require-dev": {
+		"symfony/var-dumper": "^6.0",
+		"friendsofphp/php-cs-fixer": "^3.6",
+		"phpunit/phpunit": "^9.5",
+		"phpstan/phpstan": "^1.5"
+	},
+	"bin": ["bin/phpinvariant"]
+}
