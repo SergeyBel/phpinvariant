@@ -23,12 +23,14 @@ class RunCommand extends Command
     protected function configure(): void
     {
         $this->addOption('dir', null, InputOption::VALUE_REQUIRED);
+        $this->addOption('seed', null, InputOption::VALUE_OPTIONAL);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $config = new RunnerConfiguration(
             $input->getOption('dir'),
+            $input->getOption('seed')
         );
         $this->runner->runTests($config);
         return Command::SUCCESS;

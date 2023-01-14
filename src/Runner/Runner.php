@@ -10,6 +10,7 @@ use PhpInvariant\TestRunner\TestRunner;
 class Runner
 {
     public function __construct(
+        private ConfigurationApplyer $configurationApplyer,
         private FileFinder $fileFinder,
         private ClassFinder $classFinder,
         private TestRunner $testRunner,
@@ -17,6 +18,7 @@ class Runner
     }
     public function runTests(RunnerConfiguration $configuration): void
     {
+        $this->configurationApplyer->applyConfiguration($configuration);
         $testFiles = $this->fileFinder->findTestFiles($configuration->directory);
         $testsClasses = $this->classFinder->findTestClasses($testFiles);
         foreach ($testsClasses as $test) {
