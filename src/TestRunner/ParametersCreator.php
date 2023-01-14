@@ -11,33 +11,22 @@ class ParametersCreator
         private Random $random
     ) {
     }
-    public function createParameters(array $parameters)
-    {
-        $generatedParameters = [];
-        $generators = $this->getGenerators($parameters);
-
-        foreach ($parameters as $key => $parameter) {
-            if ($parameter->getName() === 'generators') {
-                continue;
-            }
-
-            $generatedParameters[] = $generators[$key]->generate($this->random);
-        }
-
-        $generatedParameters[] = $generators;
-
-        return $generatedParameters;
-    }
 
     /**
      * @param ReflectionParameter[] $parameters
+     * @return array
      */
-    private function getGenerators(array $parameters): array
+    public function createParameters(array $parameters)
     {
+        $generatedParameters = [];
+
         foreach ($parameters as $parameter) {
-            if ($parameter->getName() === 'generators') {
-                return $parameter->getDefaultValue();
-            }
+            $attributes = $parameter->getAttributes();
+            $generator = ($attributes[0])->newInstance();
+            $generatedParameters[] = $generator->generate($this->random);
         }
+
+
+        return $generatedParameters;
     }
 }

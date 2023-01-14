@@ -3,7 +3,10 @@
 namespace PhpInvariant\Generator;
 
 use PhpInvariant\Random\Random;
+use Attribute;
 
+
+#[Attribute]
 class IntegerGenerator
 {
     private int $min;

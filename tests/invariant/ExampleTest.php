@@ -7,7 +7,7 @@ use PhpInvariant\Generator\IntegerGenerator;
 
 class ExampleTest extends BaseInvariantTest
 {
-    public function testFalse(int $x, array $generators = [new IntegerGenerator(0, 100)])
+    public function testFalse(#[IntegerGenerator(0, 100)] int $x)
     {
         $this->assertFalse($x < 0);
     }
