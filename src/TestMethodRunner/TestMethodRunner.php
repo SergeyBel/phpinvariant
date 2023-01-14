@@ -23,8 +23,8 @@ class TestMethodRunner
 
         if ($finishCondition instanceof FinishCount) {
             $this->countRunner->run($testClass, $testMethod, $generators, $finishCondition);
+        } else {
+            throw new Exception('unknown finish type');
         }
-
-        throw new Exception('unknown finish type');
     }
 }

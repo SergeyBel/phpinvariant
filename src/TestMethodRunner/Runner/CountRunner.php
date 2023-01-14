@@ -3,6 +3,7 @@
 namespace PhpInvariant\TestMethodRunner\Runner;
 
 use PhpInvariant\Finish\FinishCount;
+use PhpInvariant\Generator\GeneratorInterface;
 use PhpInvariant\TestMethodRunner\MethodCaller;
 use ReflectionClass;
 use ReflectionMethod;
@@ -16,7 +17,7 @@ class CountRunner
     }
 
     /**
-     * @param array<object> $generators
+     * @param array<GeneratorInterface> $generators
      * @return void
      * @throws ReflectionException
      */
