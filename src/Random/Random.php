@@ -9,7 +9,7 @@ class Random
         return random_int($min, $max);
     }
 
-    public function seed(int $seed)
+    public function seed(int $seed): void
     {
         srand($seed);
     }

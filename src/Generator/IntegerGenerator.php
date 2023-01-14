@@ -5,9 +5,8 @@ namespace PhpInvariant\Generator;
 use PhpInvariant\Random\Random;
 use Attribute;
 
-
 #[Attribute]
-class IntegerGenerator
+class IntegerGenerator implements GeneratorInterface
 {
     private int $min;
     private int $max;

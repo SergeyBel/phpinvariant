@@ -13,6 +13,7 @@ services:
       - '../**/Dto/*'
       - '../**/Exception/*'
       - '../Generator/*'
+      - '../Finish/*'
 
   PhpInvariant\Command\:
     resource: '../Command/*'
