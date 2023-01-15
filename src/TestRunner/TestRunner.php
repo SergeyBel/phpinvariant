@@ -3,6 +3,7 @@
 namespace PhpInvariant\TestRunner;
 
 use PhpInvariant\TestMethodRunner\TestMethodRunner;
+use PhpInvariant\TestRunner\Dto\TestRunResult;
 use ReflectionClass;
 use ReflectionMethod;
 
@@ -12,8 +13,9 @@ class TestRunner
         private TestMethodRunner $testMethodRunner
     ) {
     }
-    public function runTest(ReflectionClass $testClass): void
+    public function runTest(ReflectionClass $testClass): TestRunResult
     {
+        $result = new TestRunResult($testClass->getName());
         $publicMethods = $testClass->getMethods(ReflectionMethod::IS_PUBLIC);
         $testMethods = [];
 
@@ -24,8 +26,10 @@ class TestRunner
         }
 
         foreach ($testMethods as $testMethod) {
-            $this->testMethodRunner->runTestMethod($testClass, $testMethod);
+            $methodRunResult = $this->testMethodRunner->runTestMethod($testClass, $testMethod);
+            $result->addMethodRunResult($methodRunResult);
         }
+        return $result;
     }
 
     private function isTestMethod(ReflectionMethod $method): bool

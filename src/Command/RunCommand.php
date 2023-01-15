@@ -3,6 +3,7 @@
 namespace PhpInvariant\Command;
 
 use PhpInvariant\Runner\Dto\RunnerConfiguration;
+use PhpInvariant\Runner\Dto\RunnerResult;
 use PhpInvariant\Runner\Runner;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -28,11 +29,13 @@ class RunCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $result = new RunnerResult();
         $config = new RunnerConfiguration(
             $input->getOption('dir'),
             $input->getOption('seed')
         );
-        $this->runner->runTests($config);
+        $result = $this->runner->runTests($config);
+        $this->consoleReporter->repost($result);
         return Command::SUCCESS;
     }
 }
