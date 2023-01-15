@@ -9,12 +9,16 @@ class MethodRunResult
     private array $errorRuns = [];
 
 
-    public function incrementRunCount()
+    public function incrementRunCount(): static
     {
         $this->runsCount++;
+        return $this;
     }
 
-    public function addErrorRun(string $testName, string $methodName, string $message, array $trace)
+    /**
+     * @return $this
+     */
+    public function addErrorRun(string $testName, string $methodName, string $message, string $trace): static
     {
         $this->errorRuns[] = new ErrorRunResult(
             $testName,
@@ -22,26 +26,20 @@ class MethodRunResult
             $message,
             $trace
         );
+        return $this;
     }
 
-    /**
-     * @return int
-     */
+
     public function getRunsCount(): int
     {
         return $this->runsCount;
     }
 
     /**
-     * @return array
+     * @return ErrorRunResult[]
      */
     public function getErrorRuns(): array
     {
         return $this->errorRuns;
     }
-
-
-
-
-
 }

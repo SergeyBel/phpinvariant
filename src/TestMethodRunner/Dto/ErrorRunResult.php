@@ -8,10 +8,7 @@ class ErrorRunResult
         public string $testName,
         public string $methodName,
         public string $message,
-        public array $trace
-    )
-    {
-
+        public string $trace
+    ) {
     }
-
 }

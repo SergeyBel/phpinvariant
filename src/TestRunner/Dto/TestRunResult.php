@@ -2,53 +2,36 @@
 
 namespace PhpInvariant\TestRunner\Dto;
 
+use PhpInvariant\TestMethodRunner\Dto\ErrorRunResult;
 use PhpInvariant\TestMethodRunner\Dto\MethodRunResult;
 
 class TestRunResult
 {
     private int $runsCount = 0;
-    private array $errorRuns;
+    /** @var ErrorRunResult[] */
+    private array $errorRuns = [];
 
-    /**
-     * @param string $testName
-     */
-    public function __construct(string $testName)
+
+
+    public function addMethodRunResult(MethodRunResult $methodRunResult): static
     {
-        $this->testName = $testName;
-    }
-
-
-    public function addMethodRunResult(MethodRunResult $methodRunResult)
-    {
-        $this->runCount += $methodRunResult->getRunsCount();
+        $this->runsCount += $methodRunResult->getRunsCount();
         $this->errorRuns = array_merge($this->errorRuns, $methodRunResult->getErrorRuns());
+        return $this;
     }
 
+
     /**
-     * @return array
+     * @return ErrorRunResult[]
      */
     public function getErrorRuns(): array
     {
         return $this->errorRuns;
     }
 
-    /**
-     * @return int
-     */
+
     public function getRunsCount(): int
     {
         return $this->runsCount;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }

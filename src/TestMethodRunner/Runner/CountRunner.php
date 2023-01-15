@@ -20,23 +20,19 @@ class CountRunner
 
     /**
      * @param array<GeneratorInterface> $generators
-     * @return void
      * @throws ReflectionException
      */
     public function run(ReflectionClass $testClass, ReflectionMethod $testMethod, array $generators, FinishCount $finishCondition): MethodRunResult
     {
-        $result = new MethodRunResult($testMethod->getName());
+        $result = new MethodRunResult();
         for ($i = 0; $i < $finishCondition->getCount(); $i++) {
             try {
                 $this->methodCaller->callMethod($testClass, $testMethod, $generators);
-            } catch (ExpectationFailedException $exception)
-            {
-                $result->addErrorRun($testClass->getName(), $testMethod->getName(), $exception->getMessage(), $exception->getTrace());
-
+            } catch (ExpectationFailedException $exception) {
+                $result->addErrorRun($testClass->getName(), $testMethod->getName(), $exception->getMessage(), $exception->getTraceAsString());
             } finally {
                 $result->incrementRunCount();
             }
-
         }
         return $result;
     }

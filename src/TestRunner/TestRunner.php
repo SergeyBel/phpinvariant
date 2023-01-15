@@ -15,7 +15,7 @@ class TestRunner
     }
     public function runTest(ReflectionClass $testClass): TestRunResult
     {
-        $result = new TestRunResult($testClass->getName());
+        $result = new TestRunResult();
         $publicMethods = $testClass->getMethods(ReflectionMethod::IS_PUBLIC);
         $testMethods = [];
 

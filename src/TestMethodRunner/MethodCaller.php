@@ -4,6 +4,7 @@ namespace PhpInvariant\TestMethodRunner;
 
 use PhpInvariant\Generator\GeneratorInterface;
 use PhpInvariant\Random\Random;
+use PHPUnit\Framework\ExpectationFailedException;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionException;
@@ -18,6 +19,7 @@ class MethodCaller
     /**
      * @param array<GeneratorInterface> $generators
      * @throws ReflectionException
+     * @throws ExpectationFailedException
      */
     public function callMethod(ReflectionClass $testClass, ReflectionMethod $testMethod, array $generators): void
     {

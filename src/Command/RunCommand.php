@@ -2,8 +2,8 @@
 
 namespace PhpInvariant\Command;
 
+use PhpInvariant\Reporter\ConsoleReporter;
 use PhpInvariant\Runner\Dto\RunnerConfiguration;
-use PhpInvariant\Runner\Dto\RunnerResult;
 use PhpInvariant\Runner\Runner;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,7 +13,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 class RunCommand extends Command
 {
     public function __construct(
-        private Runner $runner
+        private Runner $runner,
+        private ConsoleReporter $consoleReporter
     ) {
         parent::__construct();
     }
@@ -29,13 +30,12 @@ class RunCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $result = new RunnerResult();
         $config = new RunnerConfiguration(
             $input->getOption('dir'),
             $input->getOption('seed')
         );
         $result = $this->runner->runTests($config);
-        $this->consoleReporter->repost($result);
+        $this->consoleReporter->report($result);
         return Command::SUCCESS;
     }
 }
