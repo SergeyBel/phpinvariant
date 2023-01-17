@@ -8,9 +8,9 @@ use PhpInvariant\Finish\FinishCount;
 
 class ExampleTest extends BaseInvariantTest
 {
-    #[FinishCount(15)]
+    #[FinishCount(2)]
     public function testFalse(#[IntegerGenerator(0, 100)] int $x)
     {
-        $this->assertFalse($x < 0);
+        $this->assertTrue($x < 0);
     }
 }

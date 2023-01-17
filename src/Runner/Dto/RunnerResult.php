@@ -39,7 +39,19 @@ class RunnerResult
         return count($this->errorRuns);
     }
 
+    public function hasErrors(): bool
+    {
+        return !empty($this->errorRuns);
+    }
 
+
+    /**
+     * @return ErrorRunResult[]
+     */
+    public function getErrorRuns(): array
+    {
+        return $this->errorRuns;
+    }
     public function getTestCount(): int
     {
         return $this->testCount;
