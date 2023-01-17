@@ -13,6 +13,26 @@ class RunnerResult
     public int $testCount = 0;
     /** @var ErrorRunResult[] */
     public array $errorRuns = [];
+    public ConfigurationResult $configuration;
+
+
+    public function setConfiguration(ConfigurationResult $configuration): static
+    {
+        $this->configuration = $configuration;
+        return $this;
+    }
+
+
+    public function getConfiguration(): ConfigurationResult
+    {
+        return $this->configuration;
+    }
+
+
+
+
+
+
 
     public function addTestResult(TestRunResult $testRunResult): static
     {
@@ -43,7 +63,6 @@ class RunnerResult
     {
         return !empty($this->errorRuns);
     }
-
 
     /**
      * @return ErrorRunResult[]

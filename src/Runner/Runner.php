@@ -20,7 +20,8 @@ class Runner
     public function runTests(RunnerConfiguration $configuration): RunnerResult
     {
         $result = new RunnerResult();
-        $this->configurationApplyer->applyConfiguration($configuration);
+        $appliedConfiguration = $this->configurationApplyer->applyConfiguration($configuration);
+        $result->setConfiguration($appliedConfiguration);
         $testFiles = $this->fileFinder->findTestFiles($configuration->directory);
         $testsClasses = $this->classFinder->findTestClasses($testFiles);
 

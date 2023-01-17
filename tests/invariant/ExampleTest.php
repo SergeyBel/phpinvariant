@@ -11,6 +11,6 @@ class ExampleTest extends BaseInvariantTest
     #[FinishCount(2)]
     public function testFalse(#[IntegerGenerator(0, 100)] int $x)
     {
-        $this->assertTrue($x < 0);
+        $this->assertFalse($x < 0);
     }
 }
