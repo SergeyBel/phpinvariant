@@ -12,7 +12,7 @@ class DependencyInjection
     public function compileContainer(): TaggedContainerInterface
     {
         $containerBuilder = new ContainerBuilder();
-        $loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__.'/../Config'));
+        $loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__));
         $loader->load('services.yaml');
         $containerBuilder->compile();
         return $containerBuilder;
