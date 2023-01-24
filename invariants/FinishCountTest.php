@@ -6,9 +6,6 @@ use PhpInvariant\BaseTest\BaseInvariantTest;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\IntegerGenerator;
 
-
-
-
 class FinishCountTest extends BaseInvariantTest
 {
     #[FinishCount(2)]
@@ -16,5 +13,4 @@ class FinishCountTest extends BaseInvariantTest
     {
         $this->assertFalse($x < 0);
     }
-
 }

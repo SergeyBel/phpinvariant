@@ -13,5 +13,4 @@ class FinishTimeTest extends BaseInvariantTest
     {
         $this->assertFalse($x < 0);
     }
-
 }
