@@ -3,14 +3,18 @@
 namespace PhpInvariant\Invariants;
 
 use PhpInvariant\BaseTest\BaseInvariantTest;
-use PhpInvariant\Generator\IntegerGenerator;
 use PhpInvariant\Finish\FinishCount;
+use PhpInvariant\Generator\IntegerGenerator;
 
-class ExampleTest extends BaseInvariantTest
+
+
+
+class FinishCountTest extends BaseInvariantTest
 {
     #[FinishCount(2)]
     public function testFalse(#[IntegerGenerator(0, 100)] int $x)
     {
         $this->assertFalse($x < 0);
     }
+
 }
