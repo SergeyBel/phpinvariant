@@ -9,10 +9,16 @@
 
 	"autoload": {
         "psr-4": {
-		"PhpInvariant\\": "./src",
-		"PhpInvariant\\Tests\\": "./tests"
+			"PhpInvariant\\": "./src"
+
 		}
     },
+	"autoload-dev": {
+		"psr-4": {
+			"PhpInvariant\\Invariants\\": "./invariants",
+			"PhpInvariant\\Tests\\": "./tests"
+		}
+	},
 	
     "require": {
 		"symfony/dependency-injection": "^6.0",

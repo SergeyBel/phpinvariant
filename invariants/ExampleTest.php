@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpInvariant\Tests\invariant;
+namespace PhpInvariant\Invariants;
 
 use PhpInvariant\BaseTest\BaseInvariantTest;
 use PhpInvariant\Generator\IntegerGenerator;
