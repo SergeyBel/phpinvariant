@@ -1,14 +1,14 @@
 <?php
 
-namespace PhpInvariant\Invariants;
+namespace PhpInvariant\Invariants\examples\finish;
 
 use PhpInvariant\BaseTest\BaseInvariantTest;
-use PhpInvariant\Finish\FinishTime;
+use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\IntegerGenerator;
 
-class FinishTimeTest extends BaseInvariantTest
+class FinishCountTest extends BaseInvariantTest
 {
-    #[FinishTime(5)]
+    #[FinishCount(2)]
     public function testFalse(#[IntegerGenerator(0, 100)] int $x)
     {
         $this->assertFalse($x < 0);
