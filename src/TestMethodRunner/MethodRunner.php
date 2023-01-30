@@ -1,14 +1,13 @@
 <?php
 
-namespace PhpInvariant\TestMethodRunner\Runner;
+namespace PhpInvariant\TestMethodRunner;
 
 use PhpInvariant\Generator\GeneratorInterface;
 use PhpInvariant\TestMethodRunner\Dto\MethodRunResult;
-use PhpInvariant\TestMethodRunner\MethodCaller;
 use PHPUnit\Framework\ExpectationFailedException;
 use ReflectionClass;
-use ReflectionMethod;
 use ReflectionException;
+use ReflectionMethod;
 
 class MethodRunner
 {

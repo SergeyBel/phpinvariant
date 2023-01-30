@@ -6,8 +6,8 @@ use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Finish\FinishTime;
 use PhpInvariant\MethodParser\TestMethodParser;
 use PhpInvariant\TestMethodRunner\Dto\MethodRunResult;
-use PhpInvariant\TestMethodRunner\Runner\CountRunner;
-use PhpInvariant\TestMethodRunner\Runner\TimeRunner;
+use PhpInvariant\TestMethodRunner\Condition\CountCondition;
+use PhpInvariant\TestMethodRunner\Condition\TimeCondition;
 use ReflectionClass;
 use ReflectionMethod;
 use Exception;
@@ -16,8 +16,8 @@ class TestMethodRunner
 {
     public function __construct(
         private TestMethodParser $methodParser,
-        private CountRunner $countRunner,
-        private TimeRunner $timeRunner
+        private CountCondition $countRunner,
+        private TimeCondition $timeRunner
     ) {
     }
     public function runTestMethod(ReflectionClass $testClass, ReflectionMethod $testMethod): MethodRunResult

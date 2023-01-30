@@ -1,15 +1,16 @@
 <?php
 
-namespace PhpInvariant\TestMethodRunner\Runner;
+namespace PhpInvariant\TestMethodRunner\Condition;
 
 use PhpInvariant\Finish\FinishTime;
 use PhpInvariant\Generator\GeneratorInterface;
 use PhpInvariant\TestMethodRunner\Dto\MethodRunResult;
+use PhpInvariant\TestMethodRunner\MethodRunner;
 use ReflectionClass;
-use ReflectionMethod;
 use ReflectionException;
+use ReflectionMethod;
 
-class TimeRunner
+class TimeCondition
 {
     public function __construct(
         private MethodRunner $methodRunner
