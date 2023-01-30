@@ -1,5 +1,5 @@
 test:
-	docker-compose exec phpinvariant vendor/bin/phpunit .
+	docker-compose exec phpinvariant vendor/bin/phpunit tests
 
 fix:
 	docker-compose exec phpinvariant vendor/bin/php-cs-fixer fix

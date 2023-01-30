@@ -12,7 +12,7 @@ use ReflectionMethod;
 class MethodRunner
 {
     public function __construct(
-        private MethodCaller $methodCaller
+        private TestMethodCaller $methodCaller
     ) {
     }
 

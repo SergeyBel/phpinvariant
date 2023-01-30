@@ -9,7 +9,7 @@ use ReflectionClass;
 use ReflectionMethod;
 use ReflectionException;
 
-class MethodCaller
+class TestMethodCaller
 {
     public function __construct(
         private Random $random
