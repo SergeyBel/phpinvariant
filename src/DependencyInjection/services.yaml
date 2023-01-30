@@ -14,6 +14,7 @@ services:
       - '../**/Exception/*'
       - '../Generator/*'
       - '../Finish/*'
+      - '../Exception/*'
 
   PhpInvariant\Command\:
     resource: '../Command/*'

@@ -3,30 +3,31 @@
 namespace PhpInvariant\TestMethodRunner;
 
 use PhpInvariant\Generator\GeneratorInterface;
-use PhpInvariant\Random\Random;
+use PhpInvariant\TestMethodRunner\Dto\MethodRunResult;
 use PHPUnit\Framework\ExpectationFailedException;
 use ReflectionClass;
-use ReflectionMethod;
 use ReflectionException;
+use ReflectionMethod;
 
 class TestMethodCaller
 {
     public function __construct(
-        private Random $random
+        private TestMethodGeneratorsCaller $methodCaller
     ) {
     }
 
     /**
      * @param array<GeneratorInterface> $generators
      * @throws ReflectionException
-     * @throws ExpectationFailedException
      */
-    public function callMethod(ReflectionClass $testClass, ReflectionMethod $testMethod, array $generators): void
+    public function callMethod(ReflectionClass $testClass, ReflectionMethod $testMethod, array $generators, MethodRunResult $result): void
     {
-        $parameters = [];
-        foreach ($generators as $generator) {
-            $parameters[] = $generator->generate($this->random);
+        try {
+            $this->methodCaller->callMethod($testClass, $testMethod, $generators);
+        } catch (ExpectationFailedException $exception) {
+            $result->addErrorRun($testClass->getName(), $testMethod->getName(), $exception->getMessage(), $exception->getTraceAsString());
+        } finally {
+            $result->incrementRunCount();
         }
-        $testMethod->invokeArgs($testClass->newInstance(), $parameters);
     }
 }

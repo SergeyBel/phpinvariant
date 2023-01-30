@@ -29,16 +29,11 @@ class RunnerResult
     }
 
 
-
-
-
-
-
     public function addTestResult(TestRunResult $testRunResult): static
     {
-        $this->runsCount = $testRunResult->getRunsCount();
+        $this->runsCount += $testRunResult->getRunsCount();
         $this->testCount++;
-        $this->errorRuns = $testRunResult->getErrorRuns();
+        $this->errorRuns = array_merge($this->errorRuns, $testRunResult->getErrorRuns());
         return $this;
     }
 
