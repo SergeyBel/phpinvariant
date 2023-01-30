@@ -15,19 +15,18 @@ class MethodRunResult
         return $this;
     }
 
+
     /**
+     * @param ErrorRunResult[] $errorRuns
      * @return $this
      */
-    public function addErrorRun(string $testName, string $methodName, string $message, string $trace): static
+    public function setErrorRuns(array $errorRuns): static
     {
-        $this->errorRuns[] = new ErrorRunResult(
-            $testName,
-            $methodName,
-            $message,
-            $trace
-        );
+        $this->errorRuns = $errorRuns;
         return $this;
     }
+
+
 
 
     public function getRunsCount(): int

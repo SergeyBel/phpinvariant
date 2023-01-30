@@ -21,8 +21,8 @@ class ConsoleReporter
                 $io->writeln('');
                 $io->writeln($number.'. Test: '.$error->testName.':'.$error->methodName);
                 $io->writeln('Message: '.$error->message);
-                $io->writeln('Trace:');
-                $io->writeln($error->trace);
+                $io->write('Parameters: ');
+                $io->writeln(json_encode($error->parameters));
                 $number++;
             }
 

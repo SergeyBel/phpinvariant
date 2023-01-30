@@ -2,6 +2,8 @@
 
 namespace PhpInvariant\Exception;
 
-class PhpInvariantException
+use Exception;
+
+class PhpInvariantException extends Exception
 {
 }
