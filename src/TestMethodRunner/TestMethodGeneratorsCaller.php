@@ -36,11 +36,11 @@ class TestMethodGeneratorsCaller
         } catch (ExpectationFailedException $exception) {
             $result->addErrorRun(
                 new ErrorRunResult(
-                $testClass->getName(),
-                $testMethod->getName(),
-                $exception->getMessage(),
-                $parameters
-            )
+                    $testClass->getName(),
+                    $testMethod->getName(),
+                    $exception->getMessage(),
+                    $parameters
+                )
             );
         }
         return $result;
