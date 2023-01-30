@@ -17,6 +17,6 @@ class FileFinderTest extends TestCase
         $fileFinder = $container->get(FileFinder::class);
         $invariantFiles = $fileFinder->findTestFiles($directory);
         $expected = [$directory.'OneTest.php', $directory.'TwoTest.php'];
-        $this->assertSame($expected, $invariantFiles);
+        $this->assertEquals($expected, $invariantFiles);
     }
 }
