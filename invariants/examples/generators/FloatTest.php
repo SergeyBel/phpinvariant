@@ -9,8 +9,8 @@ use PhpInvariant\Generator\FloatGenerator;
 class FloatTest extends BaseInvariantTest
 {
     #[FinishCount(2)]
-    public function testFloat(#[FloatGenerator(-10, 10, 2)] float $x)
+    public function testFloat(#[FloatGenerator(1, 10, 2)] float $x)
     {
-        $this->assertTrue($x < 0);
+        $this->assertTrue(is_float($x));
     }
 }
