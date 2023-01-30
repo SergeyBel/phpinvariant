@@ -6,7 +6,6 @@ use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\GeneratorInterface;
 use PhpInvariant\TestMethodRunner\Dto\MethodRunResult;
 use PhpInvariant\TestMethodRunner\TestMethodCaller;
-use PhpInvariant\TestMethodRunner\TestMethodRunner;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
