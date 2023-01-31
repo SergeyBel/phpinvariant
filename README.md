@@ -1,6 +1,7 @@
 # PhpInvariant
 PhpInvariant is a property-based testing framework for php  
-It runs your code on customized random data and checks predefined invariants
+It runs your code on customized random data and checks predefined invariants. Looks like Quickcheck
+
 
 # Installation
 The recommended way to install PhpInvariant is through Composer
