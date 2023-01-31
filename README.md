@@ -31,7 +31,7 @@ These conditions are used to determine when to end the test execution. To determ
 class SimpleTest extends BaseInvariantTest
 {
     #[FinishCount(10)]
-    public function testDivision(#[IntegerGenerator(50, 101)] int $x)
+    public function testSimple(#[IntegerGenerator(50, 101)] int $x)
     {
         // fail when $x=101
         $this->assertTrue($x < 100);

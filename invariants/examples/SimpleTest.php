@@ -9,7 +9,7 @@ use PhpInvariant\Generator\IntegerGenerator;
 class SimpleTest extends BaseInvariantTest
 {
     #[FinishCount(10)]
-    public function testDivision(#[IntegerGenerator(99, 101)] int $x)
+    public function testSimple(#[IntegerGenerator(99, 101)] int $x)
     {
         // fail when $x=101
         $this->assertTrue($x < 100);
