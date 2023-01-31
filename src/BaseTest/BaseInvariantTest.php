@@ -2,8 +2,6 @@
 
 namespace PhpInvariant\BaseTest;
 
-use PHPUnit\Framework\Assert;
-
-abstract class BaseInvariantTest extends Assert
+abstract class BaseInvariantTest extends Asserts
 {
 }

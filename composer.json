@@ -28,7 +28,8 @@
 		"phpunit/phpunit": "^9.5",
 		"nikic/php-parser": "^4.15",
 		"symfony/config": "^6.2",
-		"symfony/yaml": "^6.2"
+		"symfony/yaml": "^6.2",
+		"webmozart/assert": "^1.11"
 	},
 	"require-dev": {
 		"symfony/var-dumper": "^6.0",

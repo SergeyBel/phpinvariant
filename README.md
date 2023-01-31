@@ -9,7 +9,7 @@ The recommended way to install PhpInvariant is through Composer
 `composer require --dev sergey-bel/phpinvariant`
 
 # Quick start example
-1. Create a folder f.e. `invariants`
+1. Create a folder `invariants`
 2. Create class SimpleTest inside this folder
 ```php
 class SimpleTest extends BaseInvariantTest

@@ -2,6 +2,7 @@
 
 namespace PhpInvariant\TestMethodRunner;
 
+use PhpInvariant\BaseTest\Exception\PhpInvariantAssertException;
 use PhpInvariant\Generator\GeneratorInterface;
 use PhpInvariant\Random\Random;
 use PhpInvariant\TestMethodRunner\Dto\ErrorRunResult;
@@ -33,7 +34,7 @@ class TestMethodGeneratorsCaller
 
         try {
             $testMethod->invokeArgs($testClass->newInstance(), $parameters);
-        } catch (ExpectationFailedException $exception) {
+        } catch (PhpInvariantAssertException $exception) {
             $result->addErrorRun(
                 new ErrorRunResult(
                     $testClass->getName(),
