@@ -1,6 +1,7 @@
 {
 	"name": "sergey-bel/phpinvariant",
 	"description": "PHP property-based testing framework",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Sergey Belov"
