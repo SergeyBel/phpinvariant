@@ -33,6 +33,35 @@ class Asserts
         $this->wrap(fn () => Assert::null($value));
     }
 
+    public function assertInstanceOf(mixed $value, string $class): void
+    {
+        $this->wrap(fn () => Assert::isInstanceOf($value, $class));
+    }
+
+    /**
+     * @param array<mixed> $data
+     * @throws PhpInvariantAssertException
+     */
+    public function assertArrayHasKey(int | string $key, array $data): void
+    {
+        if (!array_key_exists($key, $data)) {
+            throw new PhpInvariantAssertException('key '. $key. 'not found in array');
+        }
+    }
+
+    /**
+     * @param array<mixed> $data
+     * @throws PhpInvariantAssertException
+     */
+    public function assertInArray(mixed $value, array $data): void
+    {
+        if (!in_array($value, $data)) {
+            throw new PhpInvariantAssertException('value '. $value. 'not found in array');
+        }
+    }
+
+
+
     /**
      * @throws PhpInvariantAssertException
      */
