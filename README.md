@@ -1,6 +1,6 @@
 # PhpInvariant
 PhpInvariant is a property-based testing framework for php  
-It runs your code on customized random data and checks predefined invariants. Looks like Quickcheck
+It runs your code on customized random data and checks predefined invariants. Looks like [QuickCheck](https://hackage.haskell.org/package/QuickCheck) 
 
 
 # Installation
