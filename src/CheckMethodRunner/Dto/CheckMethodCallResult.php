@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpInvariant\TestMethodRunner\Dto;
+namespace PhpInvariant\CheckMethodRunner\Dto;
 
-class TestMethodCallResult
+class CheckMethodCallResult
 {
     /**
      * @var array<mixed>
@@ -26,8 +26,6 @@ class TestMethodCallResult
         $this->errorRuns[] = $errorRunResult;
         return $this;
     }
-
-
     /**
      * @return ErrorRunResult[]
      */
@@ -35,8 +33,6 @@ class TestMethodCallResult
     {
         return $this->errorRuns;
     }
-
-
     /**
      * @return mixed[]
      */

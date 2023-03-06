@@ -1,11 +1,11 @@
 <?php
 
-namespace PhpInvariant\TestMethodRunner\Condition;
+namespace PhpInvariant\CheckMethodRunner\Condition;
 
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\GeneratorInterface;
-use PhpInvariant\TestMethodRunner\Dto\MethodRunResult;
-use PhpInvariant\TestMethodRunner\TestMethodCaller;
+use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
+use PhpInvariant\CheckMethodRunner\CheckMethodCaller;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
@@ -13,7 +13,7 @@ use ReflectionMethod;
 class CountCondition
 {
     public function __construct(
-        private TestMethodCaller $methodRunner
+        private CheckMethodCaller $methodRunner
     ) {
     }
 
@@ -21,11 +21,11 @@ class CountCondition
      * @param array<GeneratorInterface> $generators
      * @throws ReflectionException
      */
-    public function run(ReflectionClass $testClass, ReflectionMethod $testMethod, array $generators, FinishCount $finishCondition): MethodRunResult
+    public function run(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $generators, FinishCount $finishCondition): MethodRunResult
     {
         $result = new MethodRunResult();
         for ($i = 0; $i < $finishCondition->getCount(); $i++) {
-            $this->methodRunner->callMethod($testClass, $testMethod, $generators, $result);
+            $this->methodRunner->callMethod($checkClass, $checkMethod, $generators, $result);
         }
         return $result;
     }

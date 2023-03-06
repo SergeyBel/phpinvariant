@@ -14,12 +14,12 @@ class ClassFinder
      * @param string[] $files
      * @return ReflectionClass[]
      */
-    public function findTestClasses(array $files): array
+    public function findCheckClasses(array $files): array
     {
-        $testsClasses = [];
+        $checkClasses = [];
         foreach ($files as $file) {
-            $testsClasses[] = $this->classExtractor->getClassFromFile($file);
+            $checkClasses[] = $this->classExtractor->getClassFromFile($file);
         }
-        return $testsClasses;
+        return $checkClasses;
     }
 }

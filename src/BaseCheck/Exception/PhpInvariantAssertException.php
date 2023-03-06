@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpInvariant\BaseTest\Exception;
+namespace PhpInvariant\BaseCheck\Exception;
 
 use PhpInvariant\Exception\PhpInvariantException;
 

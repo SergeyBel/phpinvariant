@@ -2,14 +2,14 @@
 
 namespace PhpInvariant\Invariants\examples\generators;
 
-use PhpInvariant\BaseTest\BaseInvariantTest;
+use PhpInvariant\BaseCheck\BaseInvariantCheck;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\Scalar\BooleanGenerator;
 
-class BooleanTest extends BaseInvariantTest
+class BooleanCheck extends BaseInvariantCheck
 {
     #[FinishCount(5)]
-    public function testFloat(#[BooleanGenerator()] bool $x)
+    public function checkFloat(#[BooleanGenerator()] bool $x)
     {
         $this->assertTrue(is_bool($x));
     }

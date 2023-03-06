@@ -6,7 +6,7 @@ use PhpInvariant\ClassFinder\ClassFinder;
 use PhpInvariant\FileFinder\FileFinder;
 use PhpInvariant\Runner\Dto\RunnerConfiguration;
 use PhpInvariant\Runner\Dto\RunnerResult;
-use PhpInvariant\TestRunner\TestRunner;
+use PhpInvariant\CheckRunner\CheckRunner;
 
 class Runner
 {
@@ -14,20 +14,20 @@ class Runner
         private ConfigurationApplyer $configurationApplyer,
         private FileFinder $fileFinder,
         private ClassFinder $classFinder,
-        private TestRunner $testRunner,
+        private CheckRunner $checkRunner,
     ) {
     }
-    public function runTests(RunnerConfiguration $configuration): RunnerResult
+    public function runChecks(RunnerConfiguration $configuration): RunnerResult
     {
         $result = new RunnerResult();
         $appliedConfiguration = $this->configurationApplyer->applyConfiguration($configuration);
         $result->setConfiguration($appliedConfiguration);
-        $testFiles = $this->fileFinder->findTestFiles($configuration->path);
-        $testsClasses = $this->classFinder->findTestClasses($testFiles);
+        $checkFiles = $this->fileFinder->findCheckFiles($configuration->path);
+        $checkClasses = $this->classFinder->findCheckClasses($checkFiles);
 
-        foreach ($testsClasses as $test) {
-            $testResult = $this->testRunner->runTest($test);
-            $result->addTestResult($testResult);
+        foreach ($checkClasses as $check) {
+            $checkResult = $this->checkRunner->runCheck($check);
+            $result->addCheckResult($checkResult);
         }
 
         return $result;

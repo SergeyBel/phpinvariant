@@ -2,6 +2,6 @@
 
 namespace FileFinder\files;
 
-class TwoTest
+class OneCheck
 {
 }

@@ -6,7 +6,7 @@ use PhpInvariant\Finish\FinishInterface;
 use PhpInvariant\Generator\GeneratorInterface;
 use ReflectionMethod;
 
-class TestMethodParser
+class CheckMethodParser
 {
     /**
      * @return array<GeneratorInterface>

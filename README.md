@@ -13,11 +13,11 @@ The recommended way to install PhpInvariant is through Composer
 2. Create Test class inside this folder
 3. Run command `vendor/bin/phpinvariant run invariants`
 
-# How to write invariant test
+# How to write invariant check
 Rules:  
-1. Сlass name must end with 'Test'
-1. Class must extends `BaseInvariantTest`
-1. Each public method with a name 'test...' will be launched
+1. Сlass name must end with 'Check'
+1. Class must extends `BaseInvariantCheck`
+1. Each public method with a name 'check...' will be launched
 
 ## Generators
 Generators generate random data for invariants checking. To use a generator for a variable write the attribute for variable  
@@ -28,10 +28,10 @@ These conditions are used to determine when to end the test execution. To determ
 ## Example
 
 ```php
-class SimpleTest extends BaseInvariantTest
+class SimpleChecke xtends BaseInvariantCheck
 {
     #[FinishCount(10)]
-    public function testSimple(#[IntegerGenerator(50, 101)] int $x)
+    public function checkSimple(#[IntegerGenerator(50, 101)] int $x)
     {
         // fail when $x=101
         $this->assertTrue($x < 100);

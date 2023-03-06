@@ -19,7 +19,7 @@ class ConsoleReporter
             $number = 1;
             foreach ($result->getErrorRuns() as $error) {
                 $io->writeln('');
-                $io->writeln($number.'. Test: '.$error->testName.':'.$error->methodName);
+                $io->writeln($number.'. Check: '.$error->checkName.':'.$error->methodName);
                 $io->writeln('Message: '.$error->message);
                 $io->write('Parameters: ');
                 $io->writeln(json_encode($error->parameters));
@@ -41,6 +41,6 @@ class ConsoleReporter
         $percentage = number_format($successRunsCount / $runsCount * 100, 2, '.');
         $io->writeln('Finished');
         $io->writeln($successRunsCount .'/'.$runsCount.' ('.$percentage.'%)');
-        $io->writeln('(Tests: '.$result->getTestCount().', Runs: '.$result->getRunsCount().', Failed: '.$result->getErrorsCount().')');
+        $io->writeln('(Checks: '.$result->getCheckCount().', Runs: '.$result->getRunsCount().', Failed: '.$result->getErrorsCount().')');
     }
 }

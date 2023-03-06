@@ -2,15 +2,15 @@
 
 namespace PhpInvariant\Runner\Dto;
 
-use PhpInvariant\TestMethodRunner\Dto\ErrorRunResult;
-use PhpInvariant\TestRunner\Dto\TestRunResult;
+use PhpInvariant\CheckMethodRunner\Dto\ErrorRunResult;
+use PhpInvariant\CheckRunner\Dto\CheckRunResult;
 
 class RunnerResult
 {
     public int $time;
     public int $memory;
     public int $runsCount = 0;
-    public int $testCount = 0;
+    public int $checkCount = 0;
     /** @var ErrorRunResult[] */
     public array $errorRuns = [];
     public ConfigurationResult $configuration;
@@ -29,11 +29,11 @@ class RunnerResult
     }
 
 
-    public function addTestResult(TestRunResult $testRunResult): static
+    public function addCheckResult(CheckRunResult $checkRunResult): static
     {
-        $this->runsCount += $testRunResult->getRunsCount();
-        $this->testCount++;
-        $this->errorRuns = array_merge($this->errorRuns, $testRunResult->getErrorRuns());
+        $this->runsCount += $checkRunResult->getRunsCount();
+        $this->checkCount++;
+        $this->errorRuns = array_merge($this->errorRuns, $checkRunResult->getErrorRuns());
         return $this;
     }
 
@@ -66,8 +66,8 @@ class RunnerResult
     {
         return $this->errorRuns;
     }
-    public function getTestCount(): int
+    public function getCheckCount(): int
     {
-        return $this->testCount;
+        return $this->checkCount;
     }
 }

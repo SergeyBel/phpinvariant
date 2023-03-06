@@ -1,18 +1,18 @@
 <?php
 
-namespace PhpInvariant\TestMethodRunner;
+namespace PhpInvariant\CheckMethodRunner;
 
-use PhpInvariant\BaseTest\Exception\PhpInvariantAssertException;
+use PhpInvariant\BaseCheck\Exception\PhpInvariantAssertException;
 use PhpInvariant\Generator\GeneratorInterface;
 use PhpInvariant\Random\Random;
-use PhpInvariant\TestMethodRunner\Dto\ErrorRunResult;
-use PhpInvariant\TestMethodRunner\Dto\TestMethodCallResult;
+use PhpInvariant\CheckMethodRunner\Dto\ErrorRunResult;
+use PhpInvariant\CheckMethodRunner\Dto\CheckMethodCallResult;
 use PHPUnit\Framework\ExpectationFailedException;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionException;
 
-class TestMethodGeneratorsCaller
+class CheckMethodGeneratorsCaller
 {
     public function __construct(
         private Random $random
@@ -24,21 +24,21 @@ class TestMethodGeneratorsCaller
      * @throws ReflectionException
      * @throws ExpectationFailedException
      */
-    public function callMethod(ReflectionClass $testClass, ReflectionMethod $testMethod, array $generators): TestMethodCallResult
+    public function callMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $generators): CheckMethodCallResult
     {
         $parameters = [];
         foreach ($generators as $generator) {
             $parameters[] = $generator->generate($this->random);
         }
-        $result = new TestMethodCallResult($parameters);
+        $result = new CheckMethodCallResult($parameters);
 
         try {
-            $testMethod->invokeArgs($testClass->newInstance(), $parameters);
+            $checkMethod->invokeArgs($checkClass->newInstance(), $parameters);
         } catch (PhpInvariantAssertException $exception) {
             $result->addErrorRun(
                 new ErrorRunResult(
-                    $testClass->getName(),
-                    $testMethod->getName(),
+                    $checkClass->getName(),
+                    $checkMethod->getName(),
                     $exception->getMessage(),
                     $parameters
                 )

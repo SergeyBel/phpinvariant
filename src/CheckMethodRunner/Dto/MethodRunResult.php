@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpInvariant\TestMethodRunner\Dto;
+namespace PhpInvariant\CheckMethodRunner\Dto;
 
 class MethodRunResult
 {
@@ -25,10 +25,6 @@ class MethodRunResult
         $this->errorRuns = $errorRuns;
         return $this;
     }
-
-
-
-
     public function getRunsCount(): int
     {
         return $this->runsCount;

@@ -25,9 +25,9 @@ class RunCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription('Run invariants tests check');
+        $this->setDescription('Run invariants checks');
 
-        $this->addArgument('path',  InputArgument::REQUIRED, 'Directory with invariant tests or invariant test filename');
+        $this->addArgument('path', InputArgument::REQUIRED, 'Directory with invariant checks or invariant test filename');
         $this->addOption('seed', null, InputOption::VALUE_OPTIONAL, 'Random seed');
 
         $this->setHelp('This command runs invariants checks');
@@ -39,7 +39,7 @@ class RunCommand extends Command
             $input->getArgument('path'),
             $input->getOption('seed')
         );
-        $result = $this->runner->runTests($config);
+        $result = $this->runner->runChecks($config);
         $this->consoleReporter->report($result);
         return Command::SUCCESS;
     }

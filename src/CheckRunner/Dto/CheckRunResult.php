@@ -1,11 +1,11 @@
 <?php
 
-namespace PhpInvariant\TestRunner\Dto;
+namespace PhpInvariant\CheckRunner\Dto;
 
-use PhpInvariant\TestMethodRunner\Dto\ErrorRunResult;
-use PhpInvariant\TestMethodRunner\Dto\MethodRunResult;
+use PhpInvariant\CheckMethodRunner\Dto\ErrorRunResult;
+use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
 
-class TestRunResult
+class CheckRunResult
 {
     private int $runsCount = 0;
     /** @var ErrorRunResult[] */
