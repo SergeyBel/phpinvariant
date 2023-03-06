@@ -10,10 +10,14 @@ class FileFinder
     /**
      * @return string[]
      */
-    public function findTestFiles(string $directory): array
+    public function findTestFiles(string $path): array
     {
+        if (!is_dir($path)) {
+            return [$path];
+        }
+
         $finder = new Finder();
-        $files = $finder->files()->in($directory)->name(self::FILE_MASK);
+        $files = $finder->files()->in($path)->name(self::FILE_MASK);
         $testFiles = [];
         foreach ($files as $file) {
             $testFiles[] = $file->getRealPath();

@@ -1,9 +1,10 @@
 <?php
 
-namespace PhpInvariant\Generator;
+namespace PhpInvariant\Generator\Collection;
 
-use PhpInvariant\Random\Random;
 use Attribute;
+use PhpInvariant\Generator\GeneratorInterface;
+use PhpInvariant\Random\Random;
 
 #[Attribute]
 class ArrayElementGenerator implements GeneratorInterface

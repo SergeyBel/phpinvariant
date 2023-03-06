@@ -4,7 +4,7 @@ namespace PhpInvariant\Invariants\examples\generators;
 
 use PhpInvariant\BaseTest\BaseInvariantTest;
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\StringGenerator;
+use PhpInvariant\Generator\Scalar\StringGenerator;
 
 class StringTest extends BaseInvariantTest
 {

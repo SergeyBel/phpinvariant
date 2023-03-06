@@ -4,7 +4,7 @@ namespace PhpInvariant\Invariants\examples\generators;
 
 use PhpInvariant\BaseTest\BaseInvariantTest;
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\FloatGenerator;
+use PhpInvariant\Generator\Scalar\FloatGenerator;
 
 class FloatTest extends BaseInvariantTest
 {

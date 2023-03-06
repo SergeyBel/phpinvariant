@@ -22,7 +22,7 @@ class Runner
         $result = new RunnerResult();
         $appliedConfiguration = $this->configurationApplyer->applyConfiguration($configuration);
         $result->setConfiguration($appliedConfiguration);
-        $testFiles = $this->fileFinder->findTestFiles($configuration->directory);
+        $testFiles = $this->fileFinder->findTestFiles($configuration->path);
         $testsClasses = $this->classFinder->findTestClasses($testFiles);
 
         foreach ($testsClasses as $test) {

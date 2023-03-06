@@ -4,7 +4,7 @@ namespace PhpInvariant\Invariants\examples\generators;
 
 use PhpInvariant\BaseTest\BaseInvariantTest;
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\BooleanGenerator;
+use PhpInvariant\Generator\Scalar\BooleanGenerator;
 
 class BooleanTest extends BaseInvariantTest
 {

@@ -4,7 +4,7 @@ namespace PhpInvariant\Invariants\examples\generators;
 
 use PhpInvariant\BaseTest\BaseInvariantTest;
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\ArrayElementGenerator;
+use PhpInvariant\Generator\Collection\ArrayElementGenerator;
 
 class ArrayElementTest extends BaseInvariantTest
 {

@@ -1,8 +1,9 @@
 <?php
 
-namespace PhpInvariant\Generator;
+namespace PhpInvariant\Generator\Scalar;
 
 use Attribute;
+use PhpInvariant\Generator\GeneratorInterface;
 use PhpInvariant\Random\Random;
 
 #[Attribute]

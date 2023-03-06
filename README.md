@@ -11,7 +11,7 @@ The recommended way to install PhpInvariant is through Composer
 # Quick start
 1. Create a folder `invariants`
 2. Create Test class inside this folder
-3. Run command `vendor/bin/phpinvariant run --dir=invariants`
+3. Run command `vendor/bin/phpinvariant run invariants`
 
 # How to write invariant test
 Rules:  

@@ -4,7 +4,7 @@ namespace PhpInvariant\Invariants\examples\finish;
 
 use PhpInvariant\BaseTest\BaseInvariantTest;
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\IntegerGenerator;
+use PhpInvariant\Generator\Scalar\IntegerGenerator;
 
 class FinishCountTest extends BaseInvariantTest
 {
