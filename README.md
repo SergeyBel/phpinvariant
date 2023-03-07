@@ -28,7 +28,7 @@ These conditions are used to determine when to end the test execution. To determ
 ## Example
 
 ```php
-class SimpleChecke xtends BaseInvariantCheck
+class SimpleCheck extends BaseInvariantCheck
 {
     #[FinishCount(10)]
     public function checkSimple(#[IntegerGenerator(50, 101)] int $x)
