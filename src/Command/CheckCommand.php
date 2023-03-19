@@ -11,7 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class RunCommand extends Command
+class CheckCommand extends Command
 {
     public function __construct(
         private Runner $runner,
@@ -20,7 +20,7 @@ class RunCommand extends Command
         parent::__construct();
     }
 
-    protected static $defaultName = 'run';
+    protected static $defaultName = 'check';
 
 
     protected function configure(): void
