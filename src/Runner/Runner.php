@@ -25,10 +25,14 @@ class Runner
         $checkFiles = $this->fileFinder->findCheckFiles($configuration->path);
         $checkClasses = $this->classFinder->findCheckClasses($checkFiles);
 
+        $appliedConfiguration->progress->start(count($checkClasses));
         foreach ($checkClasses as $check) {
             $checkResult = $this->checkRunner->runCheck($check);
             $result->addCheckResult($checkResult);
+            $appliedConfiguration->progress->step();
         }
+
+        $appliedConfiguration->progress->finish();
 
         return $result;
     }

@@ -29,6 +29,7 @@ class CheckCommand extends Command
 
         $this->addArgument('path', InputArgument::REQUIRED, 'Directory with invariant checks or invariant test filename');
         $this->addOption('seed', null, InputOption::VALUE_OPTIONAL, 'Random seed');
+        $this->addOption('no-progress', null, InputOption::VALUE_NONE, 'Do not show progress bar');
 
         $this->setHelp('This command runs invariants checks');
     }
@@ -37,7 +38,8 @@ class CheckCommand extends Command
     {
         $config = new RunnerConfiguration(
             $input->getArgument('path'),
-            $input->getOption('seed')
+            $input->getOption('seed'),
+            !$input->getOption('no-progress'),
         );
         $result = $this->runner->runChecks($config);
         $this->consoleReporter->report($result);

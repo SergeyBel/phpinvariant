@@ -1,4 +1,4 @@
-commit: fix static test
+all: fix static test
 
 
 fix:

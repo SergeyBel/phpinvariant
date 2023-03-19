@@ -13,17 +13,17 @@ class RunnerResult
     public int $checkCount = 0;
     /** @var ErrorRunResult[] */
     public array $errorRuns = [];
-    public ConfigurationResult $configuration;
+    public ActualConfiguration $configuration;
 
 
-    public function setConfiguration(ConfigurationResult $configuration): static
+    public function setConfiguration(ActualConfiguration $configuration): static
     {
         $this->configuration = $configuration;
         return $this;
     }
 
 
-    public function getConfiguration(): ConfigurationResult
+    public function getConfiguration(): ActualConfiguration
     {
         return $this->configuration;
     }
