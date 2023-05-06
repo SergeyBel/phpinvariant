@@ -5,11 +5,13 @@ namespace PhpInvariant\Generator;
 use PhpInvariant\Exception\PhpInvariantException;
 use PhpInvariant\Generator\Generator\ArraySubsetGenerator;
 use PhpInvariant\Generator\Generator\BooleanGenerator;
+use PhpInvariant\Generator\Generator\DateTimeGenerator;
 use PhpInvariant\Generator\Generator\FloatGenerator;
 use PhpInvariant\Generator\Generator\GeneratorInterface;
 use PhpInvariant\Generator\Generator\IntegerGenerator;
 use PhpInvariant\Generator\Generator\StringGenerator;
 use PhpInvariant\Generator\Type\Arrays\ArraySubsetType;
+use PhpInvariant\Generator\Type\DateTime\DateTimeType;
 use PhpInvariant\Generator\Type\Scalar\BooleanType;
 use PhpInvariant\Generator\Type\Scalar\FloatType;
 use PhpInvariant\Generator\Type\Scalar\IntegerType;
@@ -27,6 +29,7 @@ class GeneratorFactory
         BooleanType::class => BooleanGenerator::class,
         StringType::class => StringGenerator::class,
         ArraySubsetType::class => ArraySubsetGenerator::class,
+        DateTimeType::class => DateTimeGenerator::class,
     ];
 
     public function __construct(private ContainerInterface $container)

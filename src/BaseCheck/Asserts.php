@@ -38,6 +38,13 @@ class Asserts
         $this->wrap(fn () => Assert::isInstanceOf($value, $class));
     }
 
+    public function assertLessThanEqual(mixed $value, mixed $limit): void
+    {
+        $this->wrap(fn () => Assert::lessThanEq($value, $limit));
+    }
+
+
+
     /**
      * @param array<mixed> $array
      * @throws PhpInvariantAssertException
