@@ -1,0 +1,4 @@
+parameters:
+  path: invariants
+  seed: 1234
+  no-progress: false

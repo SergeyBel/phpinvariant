@@ -28,4 +28,8 @@ jobs:
         run: |
           ./vendor/bin/phpunit tests
 
+      - name: Invariants
+        run: |
+          php app.php --config=config.yml
+
     

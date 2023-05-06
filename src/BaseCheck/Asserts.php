@@ -38,9 +38,14 @@ class Asserts
         $this->wrap(fn () => Assert::isInstanceOf($value, $class));
     }
 
-    public function assertLessThanEqual(mixed $value, mixed $limit): void
+    public function assertLessOrEqual(mixed $value, mixed $limit): void
     {
         $this->wrap(fn () => Assert::lessThanEq($value, $limit));
+    }
+
+    public function assertGreaterOrEqual(mixed $value, mixed $limit): void
+    {
+        $this->wrap(fn () => Assert::greaterThanEq($value, $limit));
     }
 
 

@@ -9,9 +9,11 @@ use PhpInvariant\Generator\Type\Arrays\ArraySubsetType;
 class ArraySubsetCheck extends BaseInvariantCheck
 {
     #[FinishCount(5)]
-    public function checkFloat(#[ArraySubsetType([10, 20, 30, 40], 2)] array $elements)
+    public function checkSubset(#[ArraySubsetType([10, 20, 30, 40], 2)] array $elements)
     {
         $this->assertCount($elements, 2);
-        $this->assertTrue(in_array($elements, [10, 20, 30, 40]));
+        foreach ($elements as $element) {
+            $this->assertTrue(in_array($element, [10, 20, 30, 40]));
+        }
     }
 }

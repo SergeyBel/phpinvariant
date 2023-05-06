@@ -12,5 +12,7 @@ class FloatCheck extends BaseInvariantCheck
     public function checkFloat(#[FloatType(1, 10, 2)] float $x)
     {
         $this->assertTrue(is_float($x));
+        $this->assertLessOrEqual($x, 10);
+        $this->assertGreaterOrEqual($x, 1);
     }
 }

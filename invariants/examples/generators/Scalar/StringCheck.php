@@ -11,6 +11,8 @@ class StringCheck extends BaseInvariantCheck
     #[FinishCount(2)]
     public function checkString(#[StringType(5, 10)] string $str)
     {
-        $this->assertTrue(is_string($str) && strlen($str) > 4);
+        $this->assertTrue(is_string($str));
+        $this->assertLessOrEqual(strlen($str), 10);
+        $this->assertGreaterOrEqual(strlen($str), 5);
     }
 }
