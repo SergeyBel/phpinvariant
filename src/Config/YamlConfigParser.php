@@ -14,8 +14,8 @@ class YamlConfigParser
 
         return new RunnerConfiguration(
             $parameters['path'],
-            $parameters['seed'],
-            !$parameters['no-progress'],
+            $parameters['seed'] ?? null,
+            !($parameters['no-progress'] ?? false),
         );
     }
 }
