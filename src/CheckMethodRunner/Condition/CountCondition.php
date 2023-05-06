@@ -3,7 +3,7 @@
 namespace PhpInvariant\CheckMethodRunner\Condition;
 
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\GeneratorInterface;
+use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
 use PhpInvariant\CheckMethodRunner\CheckMethodCaller;
 use ReflectionClass;
@@ -18,14 +18,14 @@ class CountCondition
     }
 
     /**
-     * @param array<GeneratorInterface> $generators
+     * @param array<TypeInterface> $types
      * @throws ReflectionException
      */
-    public function run(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $generators, FinishCount $finishCondition): MethodRunResult
+    public function run(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $types, FinishCount $finishCondition): MethodRunResult
     {
         $result = new MethodRunResult();
         for ($i = 0; $i < $finishCondition->getCount(); $i++) {
-            $this->methodRunner->callMethod($checkClass, $checkMethod, $generators, $result);
+            $this->methodRunner->callMethod($checkClass, $checkMethod, $types, $result);
         }
         return $result;
     }

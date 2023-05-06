@@ -3,7 +3,7 @@
 namespace PhpInvariant\CheckMethodRunner\Condition;
 
 use PhpInvariant\Finish\FinishTime;
-use PhpInvariant\Generator\GeneratorInterface;
+use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
 use PhpInvariant\CheckMethodRunner\CheckMethodCaller;
 use ReflectionClass;
@@ -19,15 +19,15 @@ class TimeCondition
 
 
     /**
-     * @param array<GeneratorInterface> $generators
+     * @param array<TypeInterface> $types
      * @throws ReflectionException
      */
-    public function run(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $generators, FinishTime $finishCondition): MethodRunResult
+    public function run(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $types, FinishTime $finishCondition): MethodRunResult
     {
         $result = new MethodRunResult();
         $start = time();
         while (time() - $start < $finishCondition->getSecondsDelay()) {
-            $this->methodRunner->callMethod($checkClass, $checkMethod, $generators, $result);
+            $this->methodRunner->callMethod($checkClass, $checkMethod, $types, $result);
         }
         return $result;
     }

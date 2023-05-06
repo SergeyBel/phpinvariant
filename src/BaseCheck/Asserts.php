@@ -39,6 +39,15 @@ class Asserts
     }
 
     /**
+     * @param array<mixed> $array
+     * @throws PhpInvariantAssertException
+     */
+    public function assertCount(array $array, int $number): void
+    {
+        $this->wrap(fn () => Assert::count($array, $number));
+    }
+
+    /**
      * @param array<mixed> $data
      * @throws PhpInvariantAssertException
      */

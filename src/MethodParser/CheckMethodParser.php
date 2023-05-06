@@ -3,24 +3,24 @@
 namespace PhpInvariant\MethodParser;
 
 use PhpInvariant\Finish\FinishInterface;
-use PhpInvariant\Generator\GeneratorInterface;
+use PhpInvariant\Generator\TypeInterface;
 use ReflectionMethod;
 
 class CheckMethodParser
 {
     /**
-     * @return array<GeneratorInterface>
+     * @return array<TypeInterface>
      */
-    public function getGenerators(ReflectionMethod $method): array
+    public function getParametersTypes(ReflectionMethod $method): array
     {
-        $generators = [];
+        $types = [];
 
         foreach ($method->getParameters() as $parameter) {
             $attributes = $parameter->getAttributes();
-            $generators[] = ($attributes[0])->newInstance();
+            $types[] = ($attributes[0])->newInstance();
         }
 
-        return $generators;
+        return $types;
     }
 
     public function getFinishCondition(ReflectionMethod $method): FinishInterface

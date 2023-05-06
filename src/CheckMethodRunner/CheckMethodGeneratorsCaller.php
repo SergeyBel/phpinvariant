@@ -3,8 +3,8 @@
 namespace PhpInvariant\CheckMethodRunner;
 
 use PhpInvariant\BaseCheck\Exception\PhpInvariantAssertException;
-use PhpInvariant\Generator\GeneratorInterface;
-use PhpInvariant\Random\Random;
+use PhpInvariant\Generator\GeneratorFactory;
+use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\CheckMethodRunner\Dto\ErrorRunResult;
 use PhpInvariant\CheckMethodRunner\Dto\CheckMethodCallResult;
 use PHPUnit\Framework\ExpectationFailedException;
@@ -15,20 +15,21 @@ use ReflectionException;
 class CheckMethodGeneratorsCaller
 {
     public function __construct(
-        private Random $random
+        private GeneratorFactory $generatorFactory
     ) {
     }
 
     /**
-     * @param array<GeneratorInterface> $generators
+     * @param array<TypeInterface> $types
      * @throws ReflectionException
      * @throws ExpectationFailedException
      */
-    public function callMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $generators): CheckMethodCallResult
+    public function callMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $types): CheckMethodCallResult
     {
         $parameters = [];
-        foreach ($generators as $generator) {
-            $parameters[] = $generator->generate($this->random);
+        foreach ($types as $type) {
+            $generator = $this->generatorFactory->getGenerator($type);
+            $parameters[] = $generator->generate($type);
         }
         $result = new CheckMethodCallResult($parameters);
 

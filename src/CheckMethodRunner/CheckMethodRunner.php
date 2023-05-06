@@ -22,13 +22,13 @@ class CheckMethodRunner
     }
     public function runCheckMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod): MethodRunResult
     {
-        $generators = $this->methodParser->getGenerators($checkMethod);
+        $types = $this->methodParser->getParametersTypes($checkMethod);
         $finishCondition = $this->methodParser->getFinishCondition($checkMethod);
 
         if ($finishCondition instanceof FinishCount) {
-            $methodRunResult = $this->countRunner->run($checkClass, $checkMethod, $generators, $finishCondition);
+            $methodRunResult = $this->countRunner->run($checkClass, $checkMethod, $types, $finishCondition);
         } elseif ($finishCondition instanceof FinishTime) {
-            $methodRunResult = $this->timeRunner->run($checkClass, $checkMethod, $generators, $finishCondition);
+            $methodRunResult = $this->timeRunner->run($checkClass, $checkMethod, $types, $finishCondition);
         } else {
             throw new Exception('unknown finish type');
         }

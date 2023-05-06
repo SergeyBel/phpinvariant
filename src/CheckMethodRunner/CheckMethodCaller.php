@@ -2,7 +2,7 @@
 
 namespace PhpInvariant\CheckMethodRunner;
 
-use PhpInvariant\Generator\GeneratorInterface;
+use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
 use ReflectionClass;
 use ReflectionException;
@@ -16,12 +16,12 @@ class CheckMethodCaller
     }
 
     /**
-     * @param array<GeneratorInterface> $generators
+     * @param array<TypeInterface> $types
      * @throws ReflectionException
      */
-    public function callMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $generators, MethodRunResult $result): void
+    public function callMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $types, MethodRunResult $result): void
     {
-        $callResult = $this->methodCaller->callMethod($checkClass, $checkMethod, $generators);
+        $callResult = $this->methodCaller->callMethod($checkClass, $checkMethod, $types);
         $result->setErrorRuns($callResult->getErrorRuns());
         $result->incrementRunCount();
     }
