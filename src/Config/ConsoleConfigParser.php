@@ -13,6 +13,7 @@ class ConsoleConfigParser
             $input->getOption('path'),
             $input->getOption('seed'),
             !$input->getOption('no-progress'),
+            $input->getOption('quiet')
         );
     }
 }

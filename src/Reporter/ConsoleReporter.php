@@ -2,6 +2,7 @@
 
 namespace PhpInvariant\Reporter;
 
+use PhpInvariant\Runner\Dto\RunnerConfiguration;
 use PhpInvariant\Runner\Dto\RunnerResult;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -9,8 +10,12 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class ConsoleReporter
 {
-    public function report(RunnerResult $result): void
+    public function report(RunnerResult $result, RunnerConfiguration $configuration): void
     {
+        if ($configuration->quiet) {
+            return;
+        }
+
         $io = new SymfonyStyle(new ArgvInput(), new ConsoleOutput());
         $io->writeln('PHPInvariant');
         $io->writeln('Seed: '.$result->getConfiguration()->seed);

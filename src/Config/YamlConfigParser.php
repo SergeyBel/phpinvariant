@@ -25,6 +25,7 @@ class YamlConfigParser
             $parameters['path'],
             $parameters['seed'] ?? null,
             !($parameters['no-progress'] ?? false),
+            $parameters['quiet'] ?? false
         );
     }
 

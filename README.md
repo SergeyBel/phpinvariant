@@ -48,6 +48,8 @@ Specifies directory with Check classes
 Specifies the path to a configuration file  
 `--no-progress`  
 Do not show progress bar  
+`--quiet`  
+Do not output any message  
 `--seed`    
 Specifies random seed   
 

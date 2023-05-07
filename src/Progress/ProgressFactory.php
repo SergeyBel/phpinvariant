@@ -2,6 +2,8 @@
 
 namespace PhpInvariant\Progress;
 
+use PhpInvariant\Runner\Dto\RunnerConfiguration;
+
 class ProgressFactory
 {
     public function __construct(
@@ -10,12 +12,17 @@ class ProgressFactory
     ) {
     }
 
-    public function getProgress(bool $progressEnable): ProgressInterface
+    public function getProgress(RunnerConfiguration $configuration): ProgressInterface
     {
-        if ($progressEnable) {
-            return $this->consoleProgress;
-        } else {
+        if (!$configuration->progressEnable) {
             return $this->emptyProgress;
         }
+
+        if ($configuration->quiet) {
+            return $this->emptyProgress;
+        }
+
+        return $this->consoleProgress;
+
     }
 }

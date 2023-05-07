@@ -39,7 +39,7 @@ class CheckCommand extends Command
     {
         $config = $this->configurationParser->parseConfiguration($input);
         $result = $this->runner->runChecks($config);
-        $this->consoleReporter->report($result);
+        $this->consoleReporter->report($result, $config);
         return Command::SUCCESS;
     }
 }

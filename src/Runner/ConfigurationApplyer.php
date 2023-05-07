@@ -18,7 +18,7 @@ class ConfigurationApplyer
     {
         $seed = $configuration->seed ?? $this->random->getInt(1, 1000000);
         $this->random->seed($seed);
-        $result = new ActualConfiguration($seed, $this->progressFactory->getProgress($configuration->progressEnable));
+        $result = new ActualConfiguration($seed, $this->progressFactory->getProgress($configuration));
         return $result;
     }
 }
