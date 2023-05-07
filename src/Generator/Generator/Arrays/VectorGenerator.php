@@ -1,7 +1,8 @@
 <?php
 
-namespace PhpInvariant\Generator\Generator;
+namespace PhpInvariant\Generator\Generator\Arrays;
 
+use PhpInvariant\Generator\Generator\GeneratorInterface;
 use PhpInvariant\Generator\GeneratorFactory;
 use PhpInvariant\Generator\Type\Arrays\VectorType;
 use PhpInvariant\Generator\TypeInterface;

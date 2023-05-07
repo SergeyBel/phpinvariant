@@ -1,11 +1,12 @@
 <?php
 
-namespace PhpInvariant\Generator\Generator;
+namespace PhpInvariant\Generator\Generator\DateTime;
 
+use DateTimeImmutable;
+use PhpInvariant\Generator\Generator\GeneratorInterface;
 use PhpInvariant\Generator\Type\DateTime\DateTimeType;
 use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\Random\Random;
-use DateTimeImmutable;
 
 class DateTimeGenerator implements GeneratorInterface
 {

@@ -3,14 +3,10 @@
 namespace PhpInvariant\Generator;
 
 use PhpInvariant\Exception\PhpInvariantException;
-use PhpInvariant\Generator\Generator\FromArrayGenerator;
-use PhpInvariant\Generator\Generator\BooleanGenerator;
-use PhpInvariant\Generator\Generator\DateTimeGenerator;
-use PhpInvariant\Generator\Generator\FloatGenerator;
+use PhpInvariant\Generator\Generator\Arrays\FromArrayGenerator;
+use PhpInvariant\Generator\Generator\DateTime\DateTimeGenerator;
 use PhpInvariant\Generator\Generator\GeneratorInterface;
-use PhpInvariant\Generator\Generator\IntegerGenerator;
-use PhpInvariant\Generator\Generator\StringGenerator;
-use PhpInvariant\Generator\Generator\VectorGenerator;
+use PhpInvariant\Generator\Generator\Scalar\IntegerGenerator;
 use PhpInvariant\Generator\Type\Arrays\FromArrayType;
 use PhpInvariant\Generator\Type\Arrays\VectorType;
 use PhpInvariant\Generator\Type\DateTime\DateTimeType;
@@ -27,12 +23,12 @@ class GeneratorFactory
      */
     private array $mapping = [
         IntegerType::class => IntegerGenerator::class,
-        FloatType::class => FloatGenerator::class,
-        BooleanType::class => BooleanGenerator::class,
-        StringType::class => StringGenerator::class,
+        FloatType::class => Generator\Scalar\FloatGenerator::class,
+        BooleanType::class => Generator\Scalar\BooleanGenerator::class,
+        StringType::class => Generator\Scalar\StringGenerator::class,
         DateTimeType::class => DateTimeGenerator::class,
         FromArrayType::class => FromArrayGenerator::class,
-        VectorType::class => VectorGenerator::class
+        VectorType::class => Generator\Arrays\VectorGenerator::class
 
     ];
 
