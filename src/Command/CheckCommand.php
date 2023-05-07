@@ -27,12 +27,12 @@ class CheckCommand extends Command
     {
         $this->setDescription('Run invariants checks');
 
-        $this->addOption('path', null, InputOption::VALUE_OPTIONAL, 'Directory with invariant checks or invariant test filename');
-        $this->addOption('seed', null, InputOption::VALUE_OPTIONAL, 'Random seed');
+        $this->addOption('path', null, InputOption::VALUE_OPTIONAL, 'Specifies directory with Check classes');
+        $this->addOption('seed', null, InputOption::VALUE_OPTIONAL, 'Specifies seed for random');
         $this->addOption('no-progress', null, InputOption::VALUE_NONE, 'Do not show progress bar');
-        $this->addOption('config', null, InputOption::VALUE_OPTIONAL, 'Config file');
+        $this->addOption('config', null, InputOption::VALUE_OPTIONAL, 'Specifies the path to a configuration file');
 
-        $this->setHelp('This command runs invariants checks');
+        $this->setHelp('Runs invariants checks');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
