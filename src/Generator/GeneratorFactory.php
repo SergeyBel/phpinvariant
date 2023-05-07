@@ -10,7 +10,9 @@ use PhpInvariant\Generator\Generator\FloatGenerator;
 use PhpInvariant\Generator\Generator\GeneratorInterface;
 use PhpInvariant\Generator\Generator\IntegerGenerator;
 use PhpInvariant\Generator\Generator\StringGenerator;
+use PhpInvariant\Generator\Generator\VectorGenerator;
 use PhpInvariant\Generator\Type\Arrays\FromArrayType;
+use PhpInvariant\Generator\Type\Arrays\VectorType;
 use PhpInvariant\Generator\Type\DateTime\DateTimeType;
 use PhpInvariant\Generator\Type\Scalar\BooleanType;
 use PhpInvariant\Generator\Type\Scalar\FloatType;
@@ -28,8 +30,10 @@ class GeneratorFactory
         FloatType::class => FloatGenerator::class,
         BooleanType::class => BooleanGenerator::class,
         StringType::class => StringGenerator::class,
-        FromArrayType::class => FromArrayGenerator::class,
         DateTimeType::class => DateTimeGenerator::class,
+        FromArrayType::class => FromArrayGenerator::class,
+        VectorType::class => VectorGenerator::class
+
     ];
 
     public function __construct(private ContainerInterface $container)

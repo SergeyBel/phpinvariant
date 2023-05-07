@@ -6,7 +6,7 @@ use PhpInvariant\BaseCheck\BaseInvariantCheck;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\Type\Arrays\FromArrayType;
 
-class ArraySubsetCheck extends BaseInvariantCheck
+class FromArrayCheck extends BaseInvariantCheck
 {
     #[FinishCount(5)]
     public function checkFromArray(#[FromArrayType([10, 20, 30, 40], 2)] array $elements)
