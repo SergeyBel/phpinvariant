@@ -3,14 +3,14 @@
 namespace PhpInvariant\Generator;
 
 use PhpInvariant\Exception\PhpInvariantException;
-use PhpInvariant\Generator\Generator\ArraySubsetGenerator;
+use PhpInvariant\Generator\Generator\FromArrayGenerator;
 use PhpInvariant\Generator\Generator\BooleanGenerator;
 use PhpInvariant\Generator\Generator\DateTimeGenerator;
 use PhpInvariant\Generator\Generator\FloatGenerator;
 use PhpInvariant\Generator\Generator\GeneratorInterface;
 use PhpInvariant\Generator\Generator\IntegerGenerator;
 use PhpInvariant\Generator\Generator\StringGenerator;
-use PhpInvariant\Generator\Type\Arrays\ArraySubsetType;
+use PhpInvariant\Generator\Type\Arrays\FromArrayType;
 use PhpInvariant\Generator\Type\DateTime\DateTimeType;
 use PhpInvariant\Generator\Type\Scalar\BooleanType;
 use PhpInvariant\Generator\Type\Scalar\FloatType;
@@ -28,7 +28,7 @@ class GeneratorFactory
         FloatType::class => FloatGenerator::class,
         BooleanType::class => BooleanGenerator::class,
         StringType::class => StringGenerator::class,
-        ArraySubsetType::class => ArraySubsetGenerator::class,
+        FromArrayType::class => FromArrayGenerator::class,
         DateTimeType::class => DateTimeGenerator::class,
     ];
 

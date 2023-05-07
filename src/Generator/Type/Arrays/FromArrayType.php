@@ -6,12 +6,12 @@ use PhpInvariant\Generator\TypeInterface;
 use Attribute;
 
 #[Attribute]
-class ArraySubsetType implements TypeInterface
+class FromArrayType implements TypeInterface
 {
     /**
      * @param array<mixed> $data
      */
-    public function __construct(public array $data, public int $subsetCount)
+    public function __construct(public array $data, public int $count)
     {
     }
 }

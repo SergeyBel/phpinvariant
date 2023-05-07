@@ -49,10 +49,10 @@ Specifies the path to a configuration file
 `--no-progress`  
 Do not show progress bar  
 `--seed`    
-Specifies seed random by default  
+Specifies random seed   
 
 ## Configuration file
-PhpInvariant uses YAML configuration format. All commfnd line options are supported in configuration file  
+PhpInvariant uses YAML configuration format. All command line options are supported in configuration file `parameters` section  
 
 Example:
 ```yml
