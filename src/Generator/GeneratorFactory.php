@@ -44,4 +44,9 @@ class GeneratorFactory
         }
         return $this->container->get($this->mapping[get_class($type)]);
     }
+
+    public function addCustomGenerator(string $typeClass, string $generatorClass): void
+    {
+        $this->mapping[$typeClass] = $generatorClass;
+    }
 }

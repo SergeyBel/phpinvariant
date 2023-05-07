@@ -17,6 +17,7 @@
 	"autoload-dev": {
 		"psr-4": {
 			"PhpInvariant\\Invariants\\": "./invariants",
+			"Custom\\": "./custom",
 			"PhpInvariant\\Tests\\": "./tests"
 		}
 	},

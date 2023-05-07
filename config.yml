@@ -1,3 +1,6 @@
 parameters:
   path: invariants
 
+generators:
+  Custom\CustomType: Custom\CustomGenerator
+

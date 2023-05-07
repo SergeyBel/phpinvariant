@@ -48,6 +48,11 @@ class Asserts
         $this->wrap(fn () => Assert::greaterThanEq($value, $limit));
     }
 
+    public function assertStartsWith(string $value, string $prefix): void
+    {
+        $this->wrap(fn () => Assert::startsWith($value, $prefix));
+    }
+
 
 
     /**
