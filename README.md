@@ -1,4 +1,6 @@
 # PhpInvariant
+![build](https://github.com/SergeyBel/phpinvariant/actions/workflows/php-ci.yml/badge.svg?branch=main)
+
 PhpInvariant is a property-based testing framework for php  
 It runs your code on customized random data and checks predefined invariants (similar to [QuickCheck](https://hackage.haskell.org/package/QuickCheck)) 
 
