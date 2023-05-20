@@ -3,53 +3,65 @@
 namespace PhpInvariant\Generator;
 
 use PhpInvariant\Exception\PhpInvariantException;
-use PhpInvariant\Generator\Generator\Arrays\ArrayElementGenerator;
-use PhpInvariant\Generator\Generator\Combine\OneOfGenerator;
-use PhpInvariant\Generator\Generator\DateTime\DateTimeGenerator;
 use PhpInvariant\Generator\Generator\GeneratorInterface;
-use PhpInvariant\Generator\Generator\Scalar\IntegerGenerator;
-use PhpInvariant\Generator\Type\Arrays\ArrayElementType;
-use PhpInvariant\Generator\Type\Arrays\VectorType;
-use PhpInvariant\Generator\Type\Combine\OneOfType;
-use PhpInvariant\Generator\Type\DateTime\DateTimeType;
-use PhpInvariant\Generator\Type\Scalar\BooleanType;
-use PhpInvariant\Generator\Type\Scalar\FloatType;
-use PhpInvariant\Generator\Type\Scalar\IntegerType;
-use PhpInvariant\Generator\Type\Scalar\StringType;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class GeneratorFactory
 {
+    public const GENERATOR_NAMESPACE = 'PhpInvariant\Generator\Generator\\';
+    public const TYPE_NAMESPACE = 'PhpInvariant\Generator\Type\\';
+    public const GENERATOR_POSTFIX = 'Generator';
+    public const TYPE_POSTFIX = 'Type';
     /**
      * @var array<string, string>
      */
-    private array $mapping = [
-        IntegerType::class => IntegerGenerator::class,
-        FloatType::class => Generator\Scalar\FloatGenerator::class,
-        BooleanType::class => Generator\Scalar\BooleanGenerator::class,
-        StringType::class => Generator\Scalar\StringGenerator::class,
-        DateTimeType::class => DateTimeGenerator::class,
-        ArrayElementType::class => ArrayElementGenerator::class,
-        VectorType::class => Generator\Arrays\VectorGenerator::class,
-        OneOfType::class => OneOfGenerator::class
+    private array $customGeneratorsMapping = [];
 
-    ];
-
-    public function __construct(private ContainerInterface $container)
-    {
+    public function __construct(
+        private ContainerInterface $container
+    ) {
     }
 
     public function getGenerator(TypeInterface $type): GeneratorInterface
     {
-        $typeClass = get_class($type);
-        if (!array_key_exists($typeClass, $this->mapping)) {
-            throw new PhpInvariantException('can not find generator for type '. $typeClass);
+        $generator = $this->getStandardGenerator($type);
+        if (is_null($generator)) {
+            $generator = $this->getCustomGenerator($type);
         }
-        return $this->container->get($this->mapping[get_class($type)]);
+
+        if (is_null($generator)) {
+            throw new PhpInvariantException('can not find generator for '. get_class($type));
+        }
+
+        return $this->container->get($generator);
     }
 
     public function addCustomGenerator(string $typeClass, string $generatorClass): void
     {
-        $this->mapping[$typeClass] = $generatorClass;
+        $this->customGeneratorsMapping[$typeClass] = $generatorClass;
     }
+
+    private function getCustomGenerator(TypeInterface $type): ?string
+    {
+        $typeClass = get_class($type);
+
+        if (array_key_exists($typeClass, $this->customGeneratorsMapping)) {
+            return $this->customGeneratorsMapping[$typeClass];
+        }
+        return null;
+
+    }
+
+    private function getStandardGenerator(TypeInterface $type): ?string
+    {
+        $typeClass = get_class($type);
+        $generatorName = str_replace(self::TYPE_NAMESPACE, self::GENERATOR_NAMESPACE, $typeClass);
+        $generatorName = str_replace(self::TYPE_POSTFIX, self::GENERATOR_POSTFIX, $generatorName);
+        if (!class_exists($generatorName)) {
+            return null;
+        }
+        return $generatorName;
+
+    }
+
 }
