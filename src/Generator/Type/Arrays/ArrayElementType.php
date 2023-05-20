@@ -6,7 +6,7 @@ use PhpInvariant\Generator\TypeInterface;
 use Attribute;
 
 #[Attribute]
-class FromArrayType implements TypeInterface
+class ArrayElementType implements TypeInterface
 {
     /**
      * @param array<mixed> $data

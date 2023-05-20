@@ -2,7 +2,7 @@
 
 namespace PhpInvariant\Generator\Type\DateTime;
 
-use DateTimeImmutable;
+use DateTime;
 use PhpInvariant\Generator\TypeInterface;
 use Attribute;
 
@@ -11,8 +11,8 @@ use Attribute;
 class DateTimeType implements TypeInterface
 {
     public function __construct(
-        public ?DateTimeImmutable $from = null,
-        public ?DateTimeImmutable $before = null,
+        public ?DateTime $from = null,
+        public ?DateTime $before = null,
     ) {
     }
 }

@@ -2,7 +2,7 @@
 
 namespace PhpInvariant\Generator\Generator\DateTime;
 
-use DateTimeImmutable;
+use DateTime;
 use PhpInvariant\Generator\Generator\GeneratorInterface;
 use PhpInvariant\Generator\Type\DateTime\DateTimeType;
 use PhpInvariant\Generator\TypeInterface;
@@ -18,11 +18,11 @@ class DateTimeGenerator implements GeneratorInterface
     /**
      * @param DateTimeType $type
      */
-    public function generate(TypeInterface $type): DateTimeImmutable
+    public function generate(TypeInterface $type): DateTime
     {
         $from = !is_null($type->from) ? $type->from->getTimestamp() : 0;
         $before = !is_null($type->before) ? $type->before->getTimestamp() : 0xffffffff;
-        $dateTime = (new DateTimeImmutable())->setTimestamp($this->random->getInt($from, $before));
+        $dateTime = (new DateTime())->setTimestamp($this->random->getInt($from, $before));
         return $dateTime;
     }
 }

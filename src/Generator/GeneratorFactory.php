@@ -3,12 +3,14 @@
 namespace PhpInvariant\Generator;
 
 use PhpInvariant\Exception\PhpInvariantException;
-use PhpInvariant\Generator\Generator\Arrays\FromArrayGenerator;
+use PhpInvariant\Generator\Generator\Arrays\ArrayElementGenerator;
+use PhpInvariant\Generator\Generator\Combine\OneOfGenerator;
 use PhpInvariant\Generator\Generator\DateTime\DateTimeGenerator;
 use PhpInvariant\Generator\Generator\GeneratorInterface;
 use PhpInvariant\Generator\Generator\Scalar\IntegerGenerator;
-use PhpInvariant\Generator\Type\Arrays\FromArrayType;
+use PhpInvariant\Generator\Type\Arrays\ArrayElementType;
 use PhpInvariant\Generator\Type\Arrays\VectorType;
+use PhpInvariant\Generator\Type\Combine\OneOfType;
 use PhpInvariant\Generator\Type\DateTime\DateTimeType;
 use PhpInvariant\Generator\Type\Scalar\BooleanType;
 use PhpInvariant\Generator\Type\Scalar\FloatType;
@@ -27,8 +29,9 @@ class GeneratorFactory
         BooleanType::class => Generator\Scalar\BooleanGenerator::class,
         StringType::class => Generator\Scalar\StringGenerator::class,
         DateTimeType::class => DateTimeGenerator::class,
-        FromArrayType::class => FromArrayGenerator::class,
-        VectorType::class => Generator\Arrays\VectorGenerator::class
+        ArrayElementType::class => ArrayElementGenerator::class,
+        VectorType::class => Generator\Arrays\VectorGenerator::class,
+        OneOfType::class => OneOfGenerator::class
 
     ];
 
