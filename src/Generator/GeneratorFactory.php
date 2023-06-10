@@ -2,7 +2,7 @@
 
 namespace PhpInvariant\Generator;
 
-use PhpInvariant\Exception\PhpInvariantException;
+use PhpInvariant\Generator\Exception\GeneratorNotFoundException;
 use PhpInvariant\Generator\Generator\GeneratorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -24,16 +24,22 @@ class GeneratorFactory
 
     public function getGenerator(TypeInterface $type): GeneratorInterface
     {
-        $generator = $this->getStandardGenerator($type);
-        if (is_null($generator)) {
-            $generator = $this->getCustomGenerator($type);
+        $generatorName = $this->getStandardGenerator($type);
+        if (is_null($generatorName)) {
+            $generatorName = $this->getCustomGenerator($type);
         }
 
-        if (is_null($generator)) {
-            throw new PhpInvariantException('can not find generator for '. get_class($type));
+        if (is_null($generatorName)) {
+            throw GeneratorNotFoundException::becauseNotFound(get_class($type));
         }
 
-        return $this->container->get($generator);
+        $generator = $this->container->get($generatorName);
+
+        if (!($generator instanceof GeneratorInterface)) {
+            throw GeneratorNotFoundException::becauseNotImplementInterface($generatorName);
+        }
+
+        return $generator;
     }
 
     public function addCustomGenerator(string $typeClass, string $generatorClass): void

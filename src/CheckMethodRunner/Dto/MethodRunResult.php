@@ -8,13 +8,11 @@ class MethodRunResult
     /** @var ErrorRunResult[] */
     private array $errorRuns = [];
 
-
     public function incrementRunCount(): static
     {
         $this->runsCount++;
         return $this;
     }
-
 
     /**
      * @param ErrorRunResult[] $errorRuns

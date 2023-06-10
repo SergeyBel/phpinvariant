@@ -31,7 +31,7 @@ class CheckMethodGeneratorsCaller
             $generator = $this->generatorFactory->getGenerator($type);
             $parameters[] = $generator->generate($type);
         }
-        $result = new CheckMethodCallResult($parameters);
+        $result = new CheckMethodCallResult();
 
         try {
             $checkMethod->invokeArgs($checkClass->newInstance(), $parameters);

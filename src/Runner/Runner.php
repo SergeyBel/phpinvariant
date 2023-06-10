@@ -17,6 +17,7 @@ class Runner
         private CheckRunner $checkRunner,
     ) {
     }
+
     public function runChecks(RunnerConfiguration $configuration): RunnerResult
     {
         $appliedConfiguration = $this->configurationApplyer->applyConfiguration($configuration);
