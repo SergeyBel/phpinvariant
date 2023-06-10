@@ -6,7 +6,7 @@ use PhpInvariant\Generator\TypeInterface;
 use Attribute;
 
 #[Attribute]
-class VectorType implements TypeInterface
+class ArrayType implements TypeInterface
 {
     public function __construct(
         public int $count,

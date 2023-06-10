@@ -1,9 +1,9 @@
 <?php
 
-namespace PhpInvariant\Generator\Generator\Scalar;
+namespace PhpInvariant\Generator\Generator\Scalar\Boolean;
 
 use PhpInvariant\Generator\Generator\GeneratorInterface;
-use PhpInvariant\Generator\Type\Scalar\BooleanType;
+use PhpInvariant\Generator\Type\Scalar\Boolean\BooleanType;
 use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\Random\Random;
 

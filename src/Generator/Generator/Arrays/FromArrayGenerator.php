@@ -3,11 +3,11 @@
 namespace PhpInvariant\Generator\Generator\Arrays;
 
 use PhpInvariant\Generator\Generator\GeneratorInterface;
-use PhpInvariant\Generator\Type\Arrays\ArrayElementType;
+use PhpInvariant\Generator\Type\Arrays\FromArrayType;
 use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\Random\Random;
 
-class ArrayElementGenerator implements GeneratorInterface
+class FromArrayGenerator implements GeneratorInterface
 {
     public function __construct(
         private Random $random
@@ -15,7 +15,7 @@ class ArrayElementGenerator implements GeneratorInterface
     }
 
     /**
-     * @param ArrayElementType $type
+     * @param FromArrayType $type
      * @return array<mixed>
      */
     public function generate(TypeInterface $type): array

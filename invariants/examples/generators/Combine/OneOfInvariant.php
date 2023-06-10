@@ -2,12 +2,12 @@
 
 namespace PhpInvariant\Invariants\examples\generators\Combine;
 
+use DateTime;
 use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\Type\Combine\OneOfType;
 use PhpInvariant\Generator\Type\DateTime\DateTimeType;
-use PhpInvariant\Generator\Type\Scalar\StringType;
-use DateTime;
+use PhpInvariant\Generator\Type\Scalar\String\StringType;
 
 class OneOfInvariant extends BaseInvariant
 {

@@ -4,10 +4,10 @@ namespace PhpInvariant\Generator\Generator\Arrays;
 
 use PhpInvariant\Generator\Generator\GeneratorInterface;
 use PhpInvariant\Generator\GeneratorFactory;
-use PhpInvariant\Generator\Type\Arrays\VectorType;
+use PhpInvariant\Generator\Type\Arrays\ArrayType;
 use PhpInvariant\Generator\TypeInterface;
 
-class VectorGenerator implements GeneratorInterface
+class ArrayGenerator implements GeneratorInterface
 {
     public function __construct(
         private GeneratorFactory $generatorFactory
@@ -15,7 +15,7 @@ class VectorGenerator implements GeneratorInterface
     }
 
     /**
-     * @param VectorType $type
+     * @param ArrayType $type
      * @return array<mixed>
      */
     public function generate(TypeInterface $type): array

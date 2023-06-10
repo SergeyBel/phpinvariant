@@ -3,7 +3,6 @@
 namespace Custom;
 
 use PhpInvariant\Generator\Generator\GeneratorInterface;
-use PhpInvariant\Generator\Type\Scalar\IntegerType;
 use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\Random\Random;
 

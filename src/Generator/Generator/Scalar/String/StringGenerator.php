@@ -1,9 +1,9 @@
 <?php
 
-namespace PhpInvariant\Generator\Generator\Scalar;
+namespace PhpInvariant\Generator\Generator\Scalar\String;
 
 use PhpInvariant\Generator\Generator\GeneratorInterface;
-use PhpInvariant\Generator\Type\Scalar\StringType;
+use PhpInvariant\Generator\Type\Scalar\String\StringType;
 use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\Random\Random;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpInvariant\Generator\Type\Scalar;
+namespace PhpInvariant\Generator\Type\Scalar\Float;
 
 use Attribute;
 use PhpInvariant\Generator\TypeInterface;

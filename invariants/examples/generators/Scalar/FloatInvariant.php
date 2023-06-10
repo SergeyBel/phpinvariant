@@ -4,7 +4,7 @@ namespace PhpInvariant\Invariants\examples\generators\Scalar;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\Type\Scalar\FloatType;
+use PhpInvariant\Generator\Type\Scalar\Float\FloatType;
 
 class FloatInvariant extends BaseInvariant
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace PhpInvariant\Generator\Generator\Scalar;
+namespace PhpInvariant\Generator\Generator\Scalar\Float;
 
 use PhpInvariant\Generator\Generator\GeneratorInterface;
-use PhpInvariant\Generator\Type\Scalar\FloatType;
+use PhpInvariant\Generator\Type\Scalar\Float\FloatType;
 use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\Random\Random;
 
