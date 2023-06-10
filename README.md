@@ -12,8 +12,8 @@ The recommended way to install PhpInvariant is through Composer
 
 # Quick start
 1. Create a folder `invariants`
-2. Create `...Check` class inside this folder
-    1. Class must extends `BaseInvariantCheck`
+2. Create `...Invariant` class inside this folder
+    1. Class must extends `BaseInvariant`
     1. Each public method with a name 'check...' will be launched
 3. Run command `vendor/bin/phpinvariant check --path=invariants`
 
@@ -31,11 +31,11 @@ Finish condition is specified by method attribute
 
 ## Example
 ```php
-class IntegerCheck extends BaseInvariantCheck
+class IntegerInvariant extends BaseInvariant
 {
     // run check method 10 times
     #[FinishCount(10)]
-    public function checkSimple(#[IntegerGenerator(90, 101)] int $x)
+    public function checkSimple(#[IntegerType(90, 101)] int $x)
     {
         // $x is a random integer in [90, 101]
         // fail when $x=101

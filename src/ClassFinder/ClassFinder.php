@@ -16,10 +16,10 @@ class ClassFinder
      */
     public function findCheckClasses(array $files): array
     {
-        $checkClasses = [];
+        $invariantClasses = [];
         foreach ($files as $file) {
-            $checkClasses[] = $this->classExtractor->getClassFromFile($file);
+            $invariantClasses[] = $this->classExtractor->getClassFromFile($file);
         }
-        return $checkClasses;
+        return $invariantClasses;
     }
 }

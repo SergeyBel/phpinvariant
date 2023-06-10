@@ -15,7 +15,7 @@ class FileFinderTest extends TestCase
         $container = $builder->compileContainer();
         /** @var FileFinder $fileFinder */
         $fileFinder = $container->get(FileFinder::class);
-        $invariantFiles = $fileFinder->findCheckFiles($directory);
+        $invariantFiles = $fileFinder->findInvariantFiles($directory);
 
         $this->assertSame(2, count($invariantFiles));
         $this->assertContains($directory.'OneCheck.php', $invariantFiles);

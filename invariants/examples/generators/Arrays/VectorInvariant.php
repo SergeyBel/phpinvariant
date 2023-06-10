@@ -2,12 +2,12 @@
 
 namespace PhpInvariant\Invariants\examples\generators\Arrays;
 
-use PhpInvariant\BaseCheck\BaseInvariantCheck;
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\Type\Arrays\VectorType;
 use PhpInvariant\Generator\Type\Scalar\StringType;
 
-class VectorCheck extends BaseInvariantCheck
+class VectorInvariant extends BaseInvariant
 {
     #[FinishCount(5)]
     public function checkFromArray(#[VectorType(3, new StringType(5, 10))] array $elements)

@@ -2,11 +2,11 @@
 
 namespace PhpInvariant\Invariants\examples\generators\Scalar;
 
-use PhpInvariant\BaseCheck\BaseInvariantCheck;
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\Type\Scalar\IntegerType;
 
-class IntegerCheck extends BaseInvariantCheck
+class IntegerInvariant extends BaseInvariant
 {
     #[FinishCount(10)]
     public function checkInteger(#[IntegerType(50, 100)] int $x)

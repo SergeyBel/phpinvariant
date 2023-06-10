@@ -22,12 +22,12 @@ class Runner
         $result = new RunnerResult();
         $appliedConfiguration = $this->configurationApplyer->applyConfiguration($configuration);
         $result->setConfiguration($appliedConfiguration);
-        $checkFiles = $this->fileFinder->findCheckFiles($configuration->path);
-        $checkClasses = $this->classFinder->findCheckClasses($checkFiles);
+        $invariantFiles = $this->fileFinder->findInvariantFiles($configuration->path);
+        $invariantClasses = $this->classFinder->findCheckClasses($invariantFiles);
 
-        $appliedConfiguration->progress->start(count($checkClasses));
-        foreach ($checkClasses as $check) {
-            $checkResult = $this->checkRunner->runCheck($check);
+        $appliedConfiguration->progress->start(count($invariantClasses));
+        foreach ($invariantClasses as $invariantClass) {
+            $checkResult = $this->checkRunner->runCheck($invariantClass);
             $result->addCheckResult($checkResult);
             $appliedConfiguration->progress->step();
         }

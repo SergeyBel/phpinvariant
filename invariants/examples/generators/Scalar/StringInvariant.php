@@ -2,11 +2,11 @@
 
 namespace PhpInvariant\Invariants\examples\generators\Scalar;
 
-use PhpInvariant\BaseCheck\BaseInvariantCheck;
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\Type\Scalar\StringType;
 
-class StringCheck extends BaseInvariantCheck
+class StringInvariant extends BaseInvariant
 {
     #[FinishCount(2)]
     public function checkString(#[StringType(5, 10)] string $str)

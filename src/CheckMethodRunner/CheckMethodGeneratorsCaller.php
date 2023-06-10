@@ -2,7 +2,7 @@
 
 namespace PhpInvariant\CheckMethodRunner;
 
-use PhpInvariant\BaseCheck\Exception\PhpInvariantAssertException;
+use PhpInvariant\BaseInvariant\Exception\PhpInvariantAssertException;
 use PhpInvariant\Generator\GeneratorFactory;
 use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\CheckMethodRunner\Dto\ErrorRunResult;

@@ -2,11 +2,11 @@
 
 namespace PhpInvariant\Invariants\examples\finish;
 
-use PhpInvariant\BaseCheck\BaseInvariantCheck;
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishTime;
 use PhpInvariant\Generator\Type\Scalar\IntegerType;
 
-class FinishTimeCheck extends BaseInvariantCheck
+class FinishTimeInvariant extends BaseInvariant
 {
     #[FinishTime(1)]
     public function checkFalse(#[IntegerType(0, 100)] int $x)

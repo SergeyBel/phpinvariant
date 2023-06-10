@@ -2,11 +2,11 @@
 
 namespace PhpInvariant\Invariants\examples\generators\Scalar;
 
-use PhpInvariant\BaseCheck\BaseInvariantCheck;
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\Type\Scalar\BooleanType;
 
-class BooleanCheck extends BaseInvariantCheck
+class BooleanInvariant extends BaseInvariant
 {
     #[FinishCount(5)]
     public function checkFloat(#[BooleanType()] bool $x)

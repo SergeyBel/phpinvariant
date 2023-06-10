@@ -2,11 +2,11 @@
 
 namespace PhpInvariant\Invariants\examples\generators\Scalar;
 
-use PhpInvariant\BaseCheck\BaseInvariantCheck;
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\Type\Scalar\FloatType;
 
-class FloatCheck extends BaseInvariantCheck
+class FloatInvariant extends BaseInvariant
 {
     #[FinishCount(2)]
     public function checkFloat(#[FloatType(1, 10, 2)] float $x)

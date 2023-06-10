@@ -2,11 +2,11 @@
 
 namespace PhpInvariant\Invariants\examples\generators\Arrays;
 
-use PhpInvariant\BaseCheck\BaseInvariantCheck;
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\Type\Arrays\ArrayElementType;
 
-class ArrayElementCheck extends BaseInvariantCheck
+class ArrayElementInvariant extends BaseInvariant
 {
     #[FinishCount(5)]
     public function checkFromArray(#[ArrayElementType([10, 20, 30, 40], 2)] array $elements)

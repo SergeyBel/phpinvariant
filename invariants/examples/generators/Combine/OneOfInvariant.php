@@ -2,14 +2,14 @@
 
 namespace PhpInvariant\Invariants\examples\generators\Combine;
 
-use PhpInvariant\BaseCheck\BaseInvariantCheck;
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\Type\Combine\OneOfType;
 use PhpInvariant\Generator\Type\DateTime\DateTimeType;
 use PhpInvariant\Generator\Type\Scalar\StringType;
 use DateTime;
 
-class OneOfCheck extends BaseInvariantCheck
+class OneOfInvariant extends BaseInvariant
 {
     #[FinishCount(5)]
     public function checkFromArray(

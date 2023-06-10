@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpInvariant\BaseCheck;
+namespace PhpInvariant\BaseInvariant;
 
-use PhpInvariant\BaseCheck\Exception\PhpInvariantAssertException;
+use PhpInvariant\BaseInvariant\Exception\PhpInvariantAssertException;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
