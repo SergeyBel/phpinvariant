@@ -14,7 +14,7 @@ class ClassFinder
      * @param string[] $files
      * @return ReflectionClass[]
      */
-    public function findCheckClasses(array $files): array
+    public function findInvariantClasses(array $files): array
     {
         $invariantClasses = [];
         foreach ($files as $file) {

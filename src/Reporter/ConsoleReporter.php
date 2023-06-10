@@ -18,7 +18,7 @@ class ConsoleReporter
 
         $io = new SymfonyStyle(new ArgvInput(), new ConsoleOutput());
         $io->writeln('PHPInvariant');
-        $io->writeln('Seed: '.$result->getConfiguration()->seed);
+        $io->writeln('Seed: '.$result->configuration->seed);
 
         if ($result->hasErrors()) {
             $number = 1;

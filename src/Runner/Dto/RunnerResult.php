@@ -7,25 +7,13 @@ use PhpInvariant\CheckRunner\Dto\CheckRunResult;
 
 class RunnerResult
 {
-    public int $time;
-    public int $memory;
-    public int $runsCount = 0;
-    public int $checkCount = 0;
-    /** @var ErrorRunResult[] */
-    public array $errorRuns = [];
-    public ActualConfiguration $configuration;
-
-
-    public function setConfiguration(ActualConfiguration $configuration): static
-    {
-        $this->configuration = $configuration;
-        return $this;
-    }
-
-
-    public function getConfiguration(): ActualConfiguration
-    {
-        return $this->configuration;
+    public function __construct(
+        public ActualConfiguration $configuration,
+        public int $runsCount = 0,
+        public int $checkCount = 0,
+        /** @var ErrorRunResult[] */
+        public  array $errorRuns = []
+    ) {
     }
 
 
