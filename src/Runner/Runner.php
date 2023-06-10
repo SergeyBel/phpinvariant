@@ -19,7 +19,6 @@ class Runner
     }
     public function runChecks(RunnerConfiguration $configuration): RunnerResult
     {
-
         $appliedConfiguration = $this->configurationApplyer->applyConfiguration($configuration);
         $invariantFiles = $this->fileFinder->findInvariantFiles($configuration->path);
         $invariantClasses = $this->classFinder->findInvariantClasses($invariantFiles);

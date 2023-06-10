@@ -11,15 +11,12 @@ class CheckRunResult
     /** @var ErrorRunResult[] */
     private array $errorRuns = [];
 
-
-
     public function addMethodRunResult(MethodRunResult $methodRunResult): static
     {
         $this->runsCount += $methodRunResult->getRunsCount();
         $this->errorRuns = array_merge($this->errorRuns, $methodRunResult->getErrorRuns());
         return $this;
     }
-
 
     /**
      * @return ErrorRunResult[]
@@ -28,7 +25,6 @@ class CheckRunResult
     {
         return $this->errorRuns;
     }
-
 
     public function getRunsCount(): int
     {
