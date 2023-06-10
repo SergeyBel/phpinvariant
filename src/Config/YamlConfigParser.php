@@ -2,8 +2,10 @@
 
 namespace PhpInvariant\Config;
 
+use PhpInvariant\Config\Exception\ConfigParseException;
 use PhpInvariant\Generator\GeneratorFactory;
 use PhpInvariant\Runner\Dto\RunnerConfiguration;
+use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
 use PhpInvariant\DependencyInjection\Container;
 
@@ -17,10 +19,24 @@ class YamlConfigParser
 
     public function parse(string $filePath): RunnerConfiguration
     {
-        $content = Yaml::parseFile($filePath);
+        try {
+            $content = Yaml::parseFile($filePath);
+        } catch (ParseException $e) {
+            throw ConfigParseException::becauseYamlNotParsed($e->getMessage());
+        }
+
         $this->addCustomGenerators($content);
 
+        if (!isset($content['parameters'])) {
+            throw ConfigParseException::becauseParametersNotSet();
+        }
+
         $parameters = $content['parameters'];
+
+        if (!isset($parameters['path'])) {
+            throw ConfigParseException::becausePathNotSet();
+        }
+
         return new RunnerConfiguration(
             $parameters['path'],
             $parameters['seed'] ?? null,

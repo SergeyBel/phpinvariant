@@ -18,7 +18,7 @@ class FileFinderTest extends TestCase
         $invariantFiles = $fileFinder->findInvariantFiles($directory);
 
         $this->assertSame(2, count($invariantFiles));
-        $this->assertContains($directory.'OneCheck.php', $invariantFiles);
-        $this->assertContains($directory.'TwoCheck.php', $invariantFiles);
+        $this->assertContains($directory.'OneInvariant.php', $invariantFiles);
+        $this->assertContains($directory.'TwoInvariant.php', $invariantFiles);
     }
 }
