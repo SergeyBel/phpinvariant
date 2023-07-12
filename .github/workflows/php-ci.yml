@@ -30,6 +30,6 @@ jobs:
 
       - name: Invariants
         run: |
-          php app.php check --config=config.yml
+          php app.php run --config=phpinvariant.yml
 
     

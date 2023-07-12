@@ -66,7 +66,7 @@ parameters:
 ```
 A config file can be passed in `--config` option:
 
-`vendor/bin/phpinvariant check --config=config.yml`
+`vendor/bin/phpinvariant run --config=phpinvariant.yml`
 
 ### How to write custom generator
 PhpInvariant allows writing custom generators to generate data for you needs
