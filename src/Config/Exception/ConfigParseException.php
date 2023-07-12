@@ -6,6 +6,11 @@ use PhpInvariant\Exception\PhpInvariantException;
 
 class ConfigParseException extends PhpInvariantException
 {
+    public static function canNotDetectRunMode(): self
+    {
+        return new  self('\'path\' or \'config\' parameter must be set');
+    }
+
     public static function becauseYamlNotParsed(string $message): self
     {
         return new self($message);
@@ -18,6 +23,6 @@ class ConfigParseException extends PhpInvariantException
 
     public static function becausePathNotSet(): self
     {
-        return new self('\'path\' parameter not set');
+        return new self('\'path\' parameter');
     }
 }
