@@ -15,7 +15,7 @@ The recommended way to install PhpInvariant is through Composer
 2. Create `...Invariant` class inside this folder
     1. Class must extends `BaseInvariant`
     1. Each public method with a name 'check...' will be launched
-3. Run command `vendor/bin/phpinvariant check --path=invariants`
+3. Run command `vendor/bin/phpinvariant run --path=invariants`
 
 See [examples](https://github.com/SergeyBel/phpinvariant/tree/main/invariants/examples)
 

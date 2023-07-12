@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Exception;
 
-class CheckCommand extends Command
+class RunCommand extends Command
 {
     public function __construct(
         private Runner $runner,
@@ -23,7 +23,7 @@ class CheckCommand extends Command
         parent::__construct();
     }
 
-    protected static $defaultName = 'check';
+    protected static $defaultName = 'run';
 
 
     protected function configure(): void
