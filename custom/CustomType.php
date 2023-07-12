@@ -6,7 +6,7 @@ use Attribute;
 use PhpInvariant\Generator\TypeInterface;
 
 #[Attribute]
-class CustomType implements TypeInterface
+class CustomType
 {
     public function __construct(public string $prefix)
     {

@@ -4,7 +4,6 @@ namespace PhpInvariant\CheckMethodRunner;
 
 use PhpInvariant\BaseInvariant\Exception\PhpInvariantAssertException;
 use PhpInvariant\Generator\GeneratorFactory;
-use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\CheckMethodRunner\Dto\ErrorRunResult;
 use PhpInvariant\CheckMethodRunner\Dto\CheckMethodCallResult;
 use PHPUnit\Framework\ExpectationFailedException;
@@ -20,7 +19,7 @@ class CheckMethodGeneratorsCaller
     }
 
     /**
-     * @param array<TypeInterface> $types
+     * @param array<mixed> $types
      * @throws ReflectionException
      * @throws ExpectationFailedException
      */
@@ -29,7 +28,7 @@ class CheckMethodGeneratorsCaller
         $parameters = [];
         foreach ($types as $type) {
             $generator = $this->generatorFactory->getGenerator($type);
-            $parameters[] = $generator->generate($type);
+            $parameters[] = $generator($type);
         }
         $result = new CheckMethodCallResult();
 

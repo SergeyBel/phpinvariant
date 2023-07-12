@@ -2,22 +2,18 @@
 
 namespace PhpInvariant\Generator\Generator\Scalar\Float;
 
-use PhpInvariant\Generator\Generator\GeneratorInterface;
 use PhpInvariant\Generator\Type\Scalar\Float\FloatType;
-use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\Random\Random;
 
-class FloatGenerator implements GeneratorInterface
+class FloatGenerator
 {
     public function __construct(
         private Random $random
     ) {
     }
 
-    /**
-     * @param FloatType $type
-     */
-    public function generate(TypeInterface $type): float
+
+    public function __invoke(FloatType $type): float
     {
         $maxIntegerPart = (int)floor($type->max);
         $minIntegerPart = (int)floor($type->min);

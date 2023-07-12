@@ -3,7 +3,6 @@
 namespace PhpInvariant\CheckMethodRunner\Condition;
 
 use PhpInvariant\Finish\FinishTime;
-use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
 use PhpInvariant\CheckMethodRunner\CheckMethodCaller;
 use ReflectionClass;
@@ -19,7 +18,7 @@ class TimeCondition
 
 
     /**
-     * @param array<TypeInterface> $types
+     * @param array<mixed> $types
      * @throws ReflectionException
      */
     public function run(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $types, FinishTime $finishCondition): MethodRunResult

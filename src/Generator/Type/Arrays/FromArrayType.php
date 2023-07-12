@@ -2,11 +2,10 @@
 
 namespace PhpInvariant\Generator\Type\Arrays;
 
-use PhpInvariant\Generator\TypeInterface;
 use Attribute;
 
 #[Attribute]
-class FromArrayType implements TypeInterface
+class FromArrayType
 {
     /**
      * @param array<mixed> $data

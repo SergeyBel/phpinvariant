@@ -2,22 +2,18 @@
 
 namespace PhpInvariant\Generator\Generator\Scalar\Boolean;
 
-use PhpInvariant\Generator\Generator\GeneratorInterface;
 use PhpInvariant\Generator\Type\Scalar\Boolean\BooleanType;
-use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\Random\Random;
 
-class BooleanGenerator implements GeneratorInterface
+class BooleanGenerator
 {
     public function __construct(
         private Random $random
     ) {
     }
 
-    /**
-     * @param BooleanType $type
-     */
-    public function generate(TypeInterface $type): bool
+
+    public function __invoke(BooleanType $type): bool
     {
         return (bool)($this->random->getInt(0, 1));
     }

@@ -3,14 +3,13 @@
 namespace PhpInvariant\MethodParser;
 
 use PhpInvariant\Finish\FinishInterface;
-use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\MethodParser\Exception\MethodParseException;
 use ReflectionMethod;
 
 class CheckMethodParser
 {
     /**
-     * @return array<TypeInterface>
+     * @return array<mixed>
      * @throws MethodParseException
      */
     public function getParametersTypes(ReflectionMethod $method): array
@@ -23,10 +22,6 @@ class CheckMethodParser
                 throw MethodParseException::parameterAttributesIncorrect($parameter->getName());
             }
             $type = ($attributes[0])->newInstance();
-            if (! ($type instanceof TypeInterface)) {
-                throw MethodParseException::parameterAttributesIncorrect($parameter->getName());
-
-            }
             $types[] = $type;
         }
 

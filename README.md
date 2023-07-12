@@ -72,8 +72,8 @@ A config file can be passed in `--config` option:
 PhpInvariant allows writing custom generators to generate data for you needs
 
 To write a generator you need to create two classes and add they in config file:
-1. `Type` class. This class uses as attribute and store settings for generator It must implements `TypeInterface`.  
-1. `Generator` class. It generates data based on settings from `Type` class. Must implements `GeneratorInterface`
+1. `Type` class. This class uses as attribute and store settings for generator  
+1. `Generator` class. It generates data based on settings from `Type` class. Must implements `__invoke` method
 1. Add classes in `generators` configuration file section
 ```yml
 parameters:

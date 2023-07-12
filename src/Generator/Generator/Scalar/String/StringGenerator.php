@@ -2,22 +2,18 @@
 
 namespace PhpInvariant\Generator\Generator\Scalar\String;
 
-use PhpInvariant\Generator\Generator\GeneratorInterface;
 use PhpInvariant\Generator\Type\Scalar\String\StringType;
-use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\Random\Random;
 
-class StringGenerator implements GeneratorInterface
+class StringGenerator
 {
     public function __construct(
         private Random $random
     ) {
     }
 
-    /**
-     * @param StringType $type
-     */
-    public function generate(TypeInterface $type): string
+
+    public function __invoke(StringType $type): string
     {
         $alphabet = [];
         for ($char = 32; $char <= 127; $char++) {

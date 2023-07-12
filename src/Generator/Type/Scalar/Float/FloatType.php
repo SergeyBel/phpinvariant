@@ -3,10 +3,9 @@
 namespace PhpInvariant\Generator\Type\Scalar\Float;
 
 use Attribute;
-use PhpInvariant\Generator\TypeInterface;
 
 #[Attribute]
-class FloatType implements TypeInterface
+class FloatType
 {
     public function __construct(public float $min, public float $max, public int $decimals)
     {

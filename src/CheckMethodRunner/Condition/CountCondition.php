@@ -3,7 +3,6 @@
 namespace PhpInvariant\CheckMethodRunner\Condition;
 
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
 use PhpInvariant\CheckMethodRunner\CheckMethodCaller;
 use ReflectionClass;
@@ -18,7 +17,7 @@ class CountCondition
     }
 
     /**
-     * @param array<TypeInterface> $types
+     * @param array<mixed> $types
      * @throws ReflectionException
      */
     public function run(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $types, FinishCount $finishCondition): MethodRunResult

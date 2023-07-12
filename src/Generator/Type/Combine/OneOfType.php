@@ -3,13 +3,12 @@
 namespace PhpInvariant\Generator\Type\Combine;
 
 use Attribute;
-use PhpInvariant\Generator\TypeInterface;
 
 #[Attribute]
-class OneOfType implements TypeInterface
+class OneOfType
 {
     /**
-     * @param array<TypeInterface> $types
+     * @param array<mixed> $types
      */
     public function __construct(public array $types)
     {

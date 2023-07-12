@@ -6,7 +6,7 @@ use PhpInvariant\Generator\Generator\GeneratorInterface;
 use PhpInvariant\Generator\TypeInterface;
 use PhpInvariant\Random\Random;
 
-class CustomGenerator implements GeneratorInterface
+class CustomGenerator
 {
     public function __construct(
         private Random $random
@@ -14,10 +14,8 @@ class CustomGenerator implements GeneratorInterface
     }
 
 
-    /**
-     * @param CustomType $type
-     */
-    public function generate(TypeInterface $type): string
+
+    public function __invoke(CustomType $type): string
     {
         return $type->prefix.' '.$this->random->getInt(1, 100);
 
