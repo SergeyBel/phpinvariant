@@ -30,13 +30,13 @@ class GeneratorFactory
         }
 
         if (is_null($generatorName)) {
-            throw GeneratorNotFoundException::becauseNotFound(get_class($type));
+            throw GeneratorNotFoundException::notFoundForType(get_class($type));
         }
 
         $generator = $this->container->get($generatorName);
 
         if (!($generator instanceof GeneratorInterface)) {
-            throw GeneratorNotFoundException::becauseNotImplementInterface($generatorName);
+            throw GeneratorNotFoundException::notImplementInterface($generatorName);
         }
 
         return $generator;

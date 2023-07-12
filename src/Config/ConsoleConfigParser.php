@@ -11,7 +11,7 @@ class ConsoleConfigParser
     public function parse(InputInterface $input): RunnerConfiguration
     {
         if (is_null($input->getOption('path'))) {
-            throw ConfigParseException::becausePathNotSet();
+            throw ConfigParseException::pathNotSet();
         }
         return new RunnerConfiguration(
             $input->getOption('path'),

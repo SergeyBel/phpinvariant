@@ -13,7 +13,7 @@ class ClassExtractor
     {
         $code = file_get_contents($file);
         if (!$code) {
-            throw ClassExtractException::becauseFileNotRead($file);
+            throw ClassExtractException::fileNotRead($file);
         }
         $parser = (new ParserFactory())->create(ParserFactory::PREFER_PHP7);
         $ast = $parser->parse($code);

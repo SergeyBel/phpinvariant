@@ -24,7 +24,7 @@ class FileFinder
             }
             return $checkFiles;
         } catch (DirectoryNotFoundException) {
-            throw FilesFindException::becauseDirectoryNotFound($path);
+            throw FilesFindException::directoryNotFound($path);
         }
     }
 }

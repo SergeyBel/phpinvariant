@@ -22,19 +22,19 @@ class YamlConfigParser
         try {
             $content = Yaml::parseFile($filePath);
         } catch (ParseException $e) {
-            throw ConfigParseException::becauseYamlNotParsed($e->getMessage());
+            throw ConfigParseException::yamlNotParsed($e->getMessage());
         }
 
         $this->addCustomGenerators($content);
 
         if (!isset($content['parameters'])) {
-            throw ConfigParseException::becauseParametersNotSet();
+            throw ConfigParseException::parametersNotSet();
         }
 
         $parameters = $content['parameters'];
 
         if (!isset($parameters['path'])) {
-            throw ConfigParseException::becausePathNotSet();
+            throw ConfigParseException::pathNotSet();
         }
 
         return new RunnerConfiguration(

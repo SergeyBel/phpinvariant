@@ -11,17 +11,17 @@ class ConfigParseException extends PhpInvariantException
         return new  self('\'path\' or \'config\' parameter must be set');
     }
 
-    public static function becauseYamlNotParsed(string $message): self
+    public static function yamlNotParsed(string $message): self
     {
         return new self($message);
     }
 
-    public static function becauseParametersNotSet(): self
+    public static function parametersNotSet(): self
     {
         return new self('\'parameters:\' not set in yml config');
     }
 
-    public static function becausePathNotSet(): self
+    public static function pathNotSet(): self
     {
         return new self('\'path\' parameter');
     }

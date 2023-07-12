@@ -20,11 +20,11 @@ class CheckMethodParser
         foreach ($method->getParameters() as $parameter) {
             $attributes = $parameter->getAttributes();
             if (count($attributes) !== 1) {
-                throw MethodParseException::becauseParameterAttributesIncorrect($parameter->getName());
+                throw MethodParseException::parameterAttributesIncorrect($parameter->getName());
             }
             $type = ($attributes[0])->newInstance();
             if (! ($type instanceof TypeInterface)) {
-                throw MethodParseException::becauseParameterAttributesIncorrect($parameter->getName());
+                throw MethodParseException::parameterAttributesIncorrect($parameter->getName());
 
             }
             $types[] = $type;
@@ -37,13 +37,13 @@ class CheckMethodParser
     {
         $attributes = $method->getAttributes();
         if (count($attributes) !== 1) {
-            throw MethodParseException::becauseMethodAttributesIncorrect($method->getName());
+            throw MethodParseException::methodAttributesIncorrect($method->getName());
         }
 
         $finish = $attributes[0]->newInstance();
 
         if (! ($finish instanceof FinishInterface)) {
-            throw MethodParseException::becauseParameterAttributesIncorrect($method->getName());
+            throw MethodParseException::parameterAttributesIncorrect($method->getName());
 
         }
         return $finish;
