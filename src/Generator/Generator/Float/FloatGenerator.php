@@ -1,8 +1,7 @@
 <?php
 
-namespace PhpInvariant\Generator\Generator\Scalar\Float;
+namespace PhpInvariant\Generator\Generator\Float;
 
-use PhpInvariant\Generator\Type\Scalar\Float\FloatType;
 use PhpInvariant\Random\Random;
 
 class FloatGenerator
@@ -13,7 +12,7 @@ class FloatGenerator
     }
 
 
-    public function __invoke(FloatType $type): float
+    public function __invoke(\PhpInvariant\Generator\Type\Float\FloatType $type): float
     {
         $maxIntegerPart = (int)floor($type->max);
         $minIntegerPart = (int)floor($type->min);

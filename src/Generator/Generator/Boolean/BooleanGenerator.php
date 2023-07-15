@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpInvariant\Generator\Generator\Scalar\Boolean;
+namespace PhpInvariant\Generator\Generator\Boolean;
 
-use PhpInvariant\Generator\Type\Scalar\Boolean\BooleanType;
+use PhpInvariant\Generator\Type\Boolean\BooleanType;
 use PhpInvariant\Random\Random;
 
 class BooleanGenerator

@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpInvariant\Generator\Type\Scalar\Boolean;
+namespace PhpInvariant\Generator\Type\Boolean;
 
 use Attribute;
 

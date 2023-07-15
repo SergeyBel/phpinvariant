@@ -7,13 +7,13 @@ use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\Type\Combine\OneOfType;
 use PhpInvariant\Generator\Type\DateTime\DateTimeType;
-use PhpInvariant\Generator\Type\Scalar\String\StringType;
+use PhpInvariant\Generator\Type\String\StringType;
 
 class OneOfInvariant extends BaseInvariant
 {
     #[FinishCount(5)]
     public function checkFromArray(
-        #[OneOfType([new StringType(1, 10), new DateTimeType()])]
+        #[OneOfType([new StringType(1, 10, ['a', 'b']), new DateTimeType()])]
         string | DateTime $value
     ) {
         if (is_string($value)) {

@@ -4,7 +4,7 @@ namespace PhpInvariant\Invariants\examples\generators\Scalar;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\Type\Scalar\Boolean\BooleanType;
+use PhpInvariant\Generator\Type\Boolean\BooleanType;
 
 class BooleanInvariant extends BaseInvariant
 {

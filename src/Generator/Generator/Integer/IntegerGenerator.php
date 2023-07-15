@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpInvariant\Generator\Generator\Scalar\Integer;
+namespace PhpInvariant\Generator\Generator\Integer;
 
-use PhpInvariant\Generator\Type\Scalar\Integer\IntegerType;
+use PhpInvariant\Generator\Type\Integer\IntegerType;
 use PhpInvariant\Random\Random;
 
 class IntegerGenerator

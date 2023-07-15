@@ -1,13 +1,14 @@
 <?php
 
-namespace PhpInvariant\Generator\Type\Scalar\String;
+namespace PhpInvariant\Generator\Type\String;
 
 use Attribute;
 
 #[Attribute]
-class StringType
+class UnicodeStringType
 {
     public function __construct(public int $minLength, public int $maxLength)
     {
     }
+
 }

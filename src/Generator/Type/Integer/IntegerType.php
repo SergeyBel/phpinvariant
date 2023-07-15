@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpInvariant\Generator\Type\Scalar\Integer;
+namespace PhpInvariant\Generator\Type\Integer;
 
 use Attribute;
 
