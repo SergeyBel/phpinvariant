@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpInvariant\Invariants\examples\generators\Scalar;
+namespace PhpInvariant\Invariants\examples\generators\String;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
