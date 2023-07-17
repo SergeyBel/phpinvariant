@@ -5,12 +5,13 @@ namespace PhpInvariant\Invariants\examples\generators\Arrays;
 use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Generator\Type\Arrays\ArrayType;
+use PhpInvariant\Generator\Type\Integer\IntegerType;
 use PhpInvariant\Generator\Type\String\StringType;
 
 class ArrayInvariant extends BaseInvariant
 {
     #[FinishCount(5)]
-    public function checkArray(#[ArrayType(3, new StringType(5, 10, ['a', 'b']))] array $elements)
+    public function checkArray(#[ArrayType(new IntegerType(3, 3), new StringType(5, 10, ['a', 'b']))] array $elements)
     {
         $this->assertCount($elements, 3);
         foreach ($elements as $element) {

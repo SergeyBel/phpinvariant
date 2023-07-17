@@ -16,16 +16,15 @@ class AssociativeArrayInvariant extends BaseInvariant
             new StringType(1, 10, ['a', 'b']),
             new IntegerType(100, 999),
             new IntegerType(3, 5),
+            new IntegerType(2, 3),
         )] array $associativeArray
     ) {
         $this->assertGreaterOrEqual(count($associativeArray), 3);
         $this->assertLessOrEqual(count($associativeArray), 5);
         foreach ($associativeArray as $key => $value) {
-            $this->assertTrue(is_string($key));
             $this->assertGreaterOrEqual(strlen($key), 1);
             $this->assertLessOrEqual(strlen($key), 10);
-            $this->assertGreaterOrEqual($value, 100);
-            $this->assertLessOrEqual($value, 999);
+            $this->assertTrue(is_array($value));
         }
     }
 
