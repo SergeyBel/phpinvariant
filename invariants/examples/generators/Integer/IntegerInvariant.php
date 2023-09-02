@@ -9,8 +9,12 @@ use PhpInvariant\Generator\Type\Integer\IntegerType;
 class IntegerInvariant extends BaseInvariant
 {
     #[FinishCount(10)]
-    public function checkInteger(#[IntegerType(50, 100)] int $x)
+    public function checkInteger()
     {
+        $x = $this->provider->integer(50, 100)->get();
+
+        $this->debug($x);
+
         $this->assertTrue(is_integer($x));
         $this->assertLessOrEqual($x, 100);
         $this->assertGreaterOrEqual($x, 50);

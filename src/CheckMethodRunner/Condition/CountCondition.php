@@ -20,7 +20,7 @@ class CountCondition
      * @param array<mixed> $types
      * @throws ReflectionException
      */
-    public function run(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $types, FinishCount $finishCondition): MethodRunResult
+    public function run(ReflectionClass $checkClass, ReflectionMethod $checkMethod,  FinishCount $finishCondition): MethodRunResult
     {
         $result = new MethodRunResult();
         for ($i = 0; $i < $finishCondition->getCount(); $i++) {

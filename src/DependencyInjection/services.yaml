@@ -12,7 +12,7 @@ services:
     exclude:
       - '../**/Dto/*'
       - '../**/Exception/*'
-      - '../Generator/Type/*'
+      - '../Generator/**'
       - '../Finish/*'
       - '../Exception/*'
 

@@ -25,22 +25,18 @@ class CheckMethodGeneratorsCaller
      */
     public function callMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $types): CheckMethodCallResult
     {
-        $parameters = [];
-        foreach ($types as $type) {
-            $generator = $this->generatorFactory->getGenerator($type);
-            $parameters[] = $generator($type);
-        }
+
         $result = new CheckMethodCallResult();
 
         try {
-            $checkMethod->invokeArgs($checkClass->newInstance(), $parameters);
+            $checkMethod->invokeArgs($checkClass->newInstance());
         } catch (PhpInvariantAssertException $exception) {
             $result->addErrorRun(
                 new ErrorRunResult(
                     $checkClass->getName(),
                     $checkMethod->getName(),
                     $exception->getMessage(),
-                    $parameters
+                    $checkClass->getMethod('getArgs')->invoke($checkClass)
                 )
             );
         }

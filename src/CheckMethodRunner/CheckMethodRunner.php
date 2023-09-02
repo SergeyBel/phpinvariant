@@ -22,7 +22,6 @@ class CheckMethodRunner
     }
     public function runCheckMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod): MethodRunResult
     {
-        $types = $this->methodParser->getParametersTypes($checkMethod);
         $finishCondition = $this->methodParser->getFinishCondition($checkMethod);
 
         if ($finishCondition instanceof FinishCount) {

@@ -84,7 +84,7 @@ generators:
 ```
 
 ## Development
-`git clone https://github.com/SergeyBel/AES.git`  
+`git clone https://github.com/SergeyBel/phpinvariant.git`  
 `docker-compose up -d`  
 
 Use Makefile commands:  

@@ -18,9 +18,9 @@ class CheckMethodCaller
      * @param array<mixed> $types
      * @throws ReflectionException
      */
-    public function callMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $types, MethodRunResult $result): void
+    public function callMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod, MethodRunResult $result): void
     {
-        $callResult = $this->methodCaller->callMethod($checkClass, $checkMethod, $types);
+        $callResult = $this->methodCaller->callMethod($checkClass, $checkMethod);
         $result->setErrorRuns($callResult->getErrorRuns());
         $result->incrementRunCount();
     }

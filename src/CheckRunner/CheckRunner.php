@@ -17,7 +17,11 @@ class CheckRunner
     }
     public function runCheck(ReflectionClass $checkClass): CheckRunResult
     {
+        $configureMethod = $checkClass->getMethod('configure');
+        $configureMethod->invoke($checkClass);
+
         $result = new CheckRunResult();
+
         $publicMethods = $checkClass->getMethods(ReflectionMethod::IS_PUBLIC);
         $checkMethods = [];
 
