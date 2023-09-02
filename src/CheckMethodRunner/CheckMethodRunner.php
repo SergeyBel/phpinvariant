@@ -2,6 +2,7 @@
 
 namespace PhpInvariant\CheckMethodRunner;
 
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\Finish\FinishTime;
 use PhpInvariant\MethodParser\CheckMethodParser;
@@ -20,14 +21,14 @@ class CheckMethodRunner
         private TimeCondition $timeRunner
     ) {
     }
-    public function runCheckMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod): MethodRunResult
+    public function runCheckMethod(BaseInvariant $checkClass, ReflectionMethod $checkMethod): MethodRunResult
     {
         $finishCondition = $this->methodParser->getFinishCondition($checkMethod);
 
         if ($finishCondition instanceof FinishCount) {
-            $methodRunResult = $this->countRunner->run($checkClass, $checkMethod, $types, $finishCondition);
+            $methodRunResult = $this->countRunner->run($checkClass, $checkMethod, $finishCondition);
         } elseif ($finishCondition instanceof FinishTime) {
-            $methodRunResult = $this->timeRunner->run($checkClass, $checkMethod, $types, $finishCondition);
+            $methodRunResult = $this->timeRunner->run($checkClass, $checkMethod, $finishCondition);
         } else {
             throw new Exception('unknown finish type');
         }

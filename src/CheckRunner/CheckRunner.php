@@ -2,6 +2,7 @@
 
 namespace PhpInvariant\CheckRunner;
 
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\CheckMethodRunner\CheckMethodRunner;
 use PhpInvariant\CheckRunner\Dto\CheckRunResult;
 use ReflectionClass;
@@ -17,8 +18,11 @@ class CheckRunner
     }
     public function runCheck(ReflectionClass $checkClass): CheckRunResult
     {
-        $configureMethod = $checkClass->getMethod('configure');
-        $configureMethod->invoke($checkClass);
+
+        /** @var BaseInvariant $instance */
+        $instance = $checkClass->newInstance();
+
+        $instance->configure();
 
         $result = new CheckRunResult();
 
@@ -32,7 +36,7 @@ class CheckRunner
         }
 
         foreach ($checkMethods as $checkMethod) {
-            $methodRunResult = $this->checkMethodRunner->runCheckMethod($checkClass, $checkMethod);
+            $methodRunResult = $this->checkMethodRunner->runCheckMethod($instance, $checkMethod);
             $result->addMethodRunResult($methodRunResult);
         }
         return $result;

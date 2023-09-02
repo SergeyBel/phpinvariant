@@ -2,6 +2,7 @@
 
 namespace PhpInvariant\CheckMethodRunner\Condition;
 
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
 use PhpInvariant\CheckMethodRunner\CheckMethodCaller;
@@ -20,11 +21,11 @@ class CountCondition
      * @param array<mixed> $types
      * @throws ReflectionException
      */
-    public function run(ReflectionClass $checkClass, ReflectionMethod $checkMethod,  FinishCount $finishCondition): MethodRunResult
+    public function run(BaseInvariant $checkClass, ReflectionMethod $checkMethod,  FinishCount $finishCondition): MethodRunResult
     {
         $result = new MethodRunResult();
         for ($i = 0; $i < $finishCondition->getCount(); $i++) {
-            $this->methodRunner->callMethod($checkClass, $checkMethod, $types, $result);
+            $this->methodRunner->callMethod($checkClass, $checkMethod, $result);
         }
         return $result;
     }

@@ -2,6 +2,7 @@
 
 namespace PhpInvariant\CheckMethodRunner;
 
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
 use ReflectionClass;
 use ReflectionException;
@@ -18,7 +19,7 @@ class CheckMethodCaller
      * @param array<mixed> $types
      * @throws ReflectionException
      */
-    public function callMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod, MethodRunResult $result): void
+    public function callMethod(BaseInvariant $checkClass, ReflectionMethod $checkMethod, MethodRunResult $result): void
     {
         $callResult = $this->methodCaller->callMethod($checkClass, $checkMethod);
         $result->setErrorRuns($callResult->getErrorRuns());

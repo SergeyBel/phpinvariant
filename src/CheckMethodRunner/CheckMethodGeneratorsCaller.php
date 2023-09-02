@@ -2,8 +2,8 @@
 
 namespace PhpInvariant\CheckMethodRunner;
 
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\BaseInvariant\Exception\PhpInvariantAssertException;
-use PhpInvariant\Generator\GeneratorFactory;
 use PhpInvariant\CheckMethodRunner\Dto\ErrorRunResult;
 use PhpInvariant\CheckMethodRunner\Dto\CheckMethodCallResult;
 use PHPUnit\Framework\ExpectationFailedException;
@@ -14,7 +14,6 @@ use ReflectionException;
 class CheckMethodGeneratorsCaller
 {
     public function __construct(
-        private GeneratorFactory $generatorFactory
     ) {
     }
 
@@ -23,20 +22,20 @@ class CheckMethodGeneratorsCaller
      * @throws ReflectionException
      * @throws ExpectationFailedException
      */
-    public function callMethod(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $types): CheckMethodCallResult
+    public function callMethod(BaseInvariant $checkClass, ReflectionMethod $checkMethod): CheckMethodCallResult
     {
 
         $result = new CheckMethodCallResult();
 
         try {
-            $checkMethod->invokeArgs($checkClass->newInstance());
+            $checkMethod->invoke($checkClass);
         } catch (PhpInvariantAssertException $exception) {
             $result->addErrorRun(
                 new ErrorRunResult(
-                    $checkClass->getName(),
+                    get_class($checkClass),
                     $checkMethod->getName(),
                     $exception->getMessage(),
-                    $checkClass->getMethod('getArgs')->invoke($checkClass)
+                    $checkClass->getArgs()
                 )
             );
         }
