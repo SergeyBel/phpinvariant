@@ -4,7 +4,6 @@ namespace PhpInvariant\Invariants\examples\generators\Arrays;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\Type\Arrays\FromArrayType;
 
 class ElementsInvariant extends BaseInvariant
 {

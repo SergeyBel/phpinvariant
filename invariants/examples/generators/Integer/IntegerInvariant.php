@@ -7,7 +7,6 @@ use PhpInvariant\Finish\FinishCount;
 
 class IntegerInvariant extends BaseInvariant
 {
-
     #[FinishCount(10)]
     public function checkInteger()
     {

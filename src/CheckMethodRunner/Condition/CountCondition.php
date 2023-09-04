@@ -6,7 +6,6 @@ use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
 use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
 use PhpInvariant\CheckMethodRunner\CheckMethodCaller;
-use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
 
@@ -18,10 +17,9 @@ class CountCondition
     }
 
     /**
-     * @param array<mixed> $types
      * @throws ReflectionException
      */
-    public function run(BaseInvariant $checkClass, ReflectionMethod $checkMethod,  FinishCount $finishCondition): MethodRunResult
+    public function run(BaseInvariant $checkClass, ReflectionMethod $checkMethod, FinishCount $finishCondition): MethodRunResult
     {
         $result = new MethodRunResult();
         for ($i = 0; $i < $finishCondition->getCount(); $i++) {

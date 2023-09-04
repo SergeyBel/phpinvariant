@@ -11,10 +11,7 @@ class StringGenerator extends Random implements GeneratorInterface
 
     private array $dictionary;
 
-    /**
-     * @param int $minLength
-     * @param int $maxLength
-     */
+
     public function __construct(int $minLength, int $maxLength)
     {
         $this->minLength = $minLength;
@@ -45,8 +42,7 @@ class StringGenerator extends Random implements GeneratorInterface
     public function ascii()
     {
         $dictionary = [];
-        for ($c = 0; $c <= 255; $c++)
-        {
+        for ($c = 0; $c <= 255; $c++) {
             $dictionary[] = chr($c);
         }
 

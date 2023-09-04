@@ -11,10 +11,7 @@ class FloatGenerator extends Random implements GeneratorInterface
 
     private int $decimals = 2;
 
-    /**
-     * @param float $min
-     * @param float $max
-     */
+
     public function __construct(float $min, float $max)
     {
         $this->min = $min;

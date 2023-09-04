@@ -4,9 +4,6 @@ namespace PhpInvariant\Invariants\examples\generators\Arrays;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\Type\Arrays\ArrayType;
-use PhpInvariant\Generator\Type\Integer\IntegerType;
-use PhpInvariant\Generator\Type\String\StringType;
 
 class ArrayInvariant extends BaseInvariant
 {

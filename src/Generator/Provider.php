@@ -2,8 +2,6 @@
 
 namespace PhpInvariant\Generator;
 
-
-
 class Provider
 {
     public function integer($min, $max): IntegerGenerator
@@ -11,7 +9,7 @@ class Provider
         return new IntegerGenerator($min, $max);
     }
 
-    public function boolean():BooleanGenerator
+    public function boolean(): BooleanGenerator
     {
         return new BooleanGenerator();
     }
@@ -24,5 +22,9 @@ class Provider
     public function string($minLength, $maxLength): StringGenerator
     {
         return new StringGenerator($minLength, $maxLength);
+    }
+    public function datetime(): DateTimeGenerator
+    {
+        return new DateTimeGenerator();
     }
 }

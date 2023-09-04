@@ -7,7 +7,6 @@ use PhpInvariant\BaseInvariant\Exception\PhpInvariantAssertException;
 use PhpInvariant\CheckMethodRunner\Dto\ErrorRunResult;
 use PhpInvariant\CheckMethodRunner\Dto\CheckMethodCallResult;
 use PHPUnit\Framework\ExpectationFailedException;
-use ReflectionClass;
 use ReflectionMethod;
 use ReflectionException;
 
@@ -18,7 +17,6 @@ class CheckMethodGeneratorsCaller
     }
 
     /**
-     * @param array<mixed> $types
      * @throws ReflectionException
      * @throws ExpectationFailedException
      */

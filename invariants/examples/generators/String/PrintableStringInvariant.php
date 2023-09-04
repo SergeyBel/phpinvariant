@@ -4,7 +4,6 @@ namespace PhpInvariant\Invariants\examples\generators\String;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\Type\String\PrintableStringType;
 
 class PrintableStringInvariant extends BaseInvariant
 {

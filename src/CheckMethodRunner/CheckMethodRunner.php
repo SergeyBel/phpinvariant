@@ -9,7 +9,6 @@ use PhpInvariant\MethodParser\CheckMethodParser;
 use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
 use PhpInvariant\CheckMethodRunner\Condition\CountCondition;
 use PhpInvariant\CheckMethodRunner\Condition\TimeCondition;
-use ReflectionClass;
 use ReflectionMethod;
 use Exception;
 
