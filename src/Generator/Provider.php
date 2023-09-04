@@ -15,4 +15,9 @@ class Provider
     {
         return new BooleanGenerator();
     }
+
+    public function float($min, $max): FloatGenerator
+    {
+        return new FloatGenerator($min, $max);
+    }
 }
