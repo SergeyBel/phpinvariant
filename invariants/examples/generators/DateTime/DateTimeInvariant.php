@@ -10,8 +10,9 @@ use DateTime;
 class DateTimeInvariant extends BaseInvariant
 {
     #[FinishCount(5)]
-    public function checkDateTime(#[DateTimeType(before: new DateTime())] DateTime $time)
+    public function checkDateTime()
     {
+        $time = $this->provider->datetime(before: new DateTime())->get();
         $this->assertLessOrEqual($time->getTimestamp(), time());
     }
 }

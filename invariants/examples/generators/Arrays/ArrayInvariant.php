@@ -11,8 +11,9 @@ use PhpInvariant\Generator\Type\String\StringType;
 class ArrayInvariant extends BaseInvariant
 {
     #[FinishCount(5)]
-    public function checkArray(#[ArrayType(new IntegerType(3, 3), new StringType(5, 10, ['a', 'b']))] array $elements)
+    public function checkArray()
     {
+        $elements = $this->provider->array(3, $this->provider->string(5, 10)->ascii())->get();
         $this->assertCount($elements, 3);
         foreach ($elements as $element) {
             $this->assertTrue(is_string($element));

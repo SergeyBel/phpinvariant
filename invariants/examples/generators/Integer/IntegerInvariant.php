@@ -4,8 +4,6 @@ namespace PhpInvariant\Invariants\examples\generators\Integer;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\Provider;
-use PhpInvariant\Generator\Type\Integer\IntegerType;
 
 class IntegerInvariant extends BaseInvariant
 {
