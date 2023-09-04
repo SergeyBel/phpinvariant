@@ -8,4 +8,11 @@ class Random
     {
         return random_int($min, $max);
     }
+
+    public function getArrayElement(array $data)
+    {
+        $keys = array_keys($data);
+        $key = $keys[$this->getInt(0, count($keys) - 1)];
+        return $data[$key];
+    }
 }

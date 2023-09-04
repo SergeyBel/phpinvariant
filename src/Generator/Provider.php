@@ -20,4 +20,9 @@ class Provider
     {
         return new FloatGenerator($min, $max);
     }
+
+    public function string($minLength, $maxLength): StringGenerator
+    {
+        return new StringGenerator($minLength, $maxLength);
+    }
 }

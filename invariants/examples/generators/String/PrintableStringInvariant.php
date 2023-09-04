@@ -11,7 +11,7 @@ class PrintableStringInvariant extends BaseInvariant
     #[FinishCount(2)]
     public function checkString()
     {
-        $str = $this->provider->string(5, 10)->ascii()->get();
+        $str = $this->provider->string(5, 10)->alphabetic()->get();
         $this->assertTrue(is_string($str));
         $this->assertLessOrEqual(strlen($str), 10);
         $this->assertGreaterOrEqual(strlen($str), 5);
