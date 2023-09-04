@@ -8,5 +8,4 @@ class Random
     {
         return random_int($min, $max);
     }
-
 }

@@ -10,4 +10,9 @@ class Provider
     {
         return new IntegerGenerator($min, $max);
     }
+
+    public function boolean():BooleanGenerator
+    {
+        return new BooleanGenerator();
+    }
 }
