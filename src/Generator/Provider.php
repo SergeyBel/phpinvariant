@@ -27,4 +27,14 @@ class Provider
     {
         return new DateTimeGenerator();
     }
+
+    public function array(int $count, GeneratorInterface $elementGenerator): ArrayGenerator
+    {
+        return new ArrayGenerator($count, $elementGenerator);
+    }
+
+    public function elements(array $data, int $count): ElementsGenerator
+    {
+        return new ElementsGenerator($data, $count);
+    }
 }

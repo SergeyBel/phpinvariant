@@ -16,6 +16,7 @@ class StringGenerator extends Random implements GeneratorInterface
     {
         $this->minLength = $minLength;
         $this->maxLength = $maxLength;
+        $this->ascii();
     }
 
 
