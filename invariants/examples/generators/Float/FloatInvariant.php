@@ -3,11 +3,11 @@
 namespace PhpInvariant\Invariants\examples\generators\Float;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
-use PhpInvariant\Finish\FinishCount;
+use PhpInvariant\Finish\FinishRuns;
 
 class FloatInvariant extends BaseInvariant
 {
-    #[FinishCount(2)]
+    #[FinishRuns(2)]
     public function checkFloat()
     {
         $x = $this->provider->float(1, 10)->decimals(2)->get();

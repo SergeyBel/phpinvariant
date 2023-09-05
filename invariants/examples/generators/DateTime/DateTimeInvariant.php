@@ -3,11 +3,11 @@
 namespace PhpInvariant\Invariants\examples\generators\DateTime;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
-use PhpInvariant\Finish\FinishCount;
+use PhpInvariant\Finish\FinishRuns;
 
 class DateTimeInvariant extends BaseInvariant
 {
-    #[FinishCount(5)]
+    #[FinishRuns(5)]
     public function checkDateTime()
     {
         $time = $this->provider->datetime()->get();

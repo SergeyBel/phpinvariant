@@ -3,11 +3,11 @@
 namespace PhpInvariant\Invariants\examples\generators\String;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
-use PhpInvariant\Finish\FinishCount;
+use PhpInvariant\Finish\FinishRuns;
 
 class StringInvariant extends BaseInvariant
 {
-    #[FinishCount(2)]
+    #[FinishRuns(2)]
     public function checkString()
     {
         $str = $this->provider->string(5, 10)->dictionary(['a', 'b', 'c'])->get();

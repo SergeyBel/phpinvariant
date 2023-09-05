@@ -3,11 +3,11 @@
 namespace PhpInvariant\Invariants\examples\generators\Arrays;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
-use PhpInvariant\Finish\FinishCount;
+use PhpInvariant\Finish\FinishRuns;
 
 class ArrayInvariant extends BaseInvariant
 {
-    #[FinishCount(5)]
+    #[FinishRuns(5)]
     public function checkArray()
     {
         $elements = $this->provider->array(3, $this->provider->string(5, 10)->ascii())->get();

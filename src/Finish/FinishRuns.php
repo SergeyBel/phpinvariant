@@ -5,7 +5,7 @@ namespace PhpInvariant\Finish;
 use Attribute;
 
 #[Attribute]
-class FinishCount implements FinishInterface
+class FinishRuns implements FinishInterface
 {
     private int $count;
 

@@ -3,11 +3,11 @@
 namespace PhpInvariant\Invariants\examples\generators\Combine;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
-use PhpInvariant\Finish\FinishCount;
+use PhpInvariant\Finish\FinishRuns;
 
 class CombineInvariant extends BaseInvariant
 {
-    #[FinishCount(5)]
+    #[FinishRuns(5)]
     public function checkFromArray()
     {
         $value = $this->provider->combine(

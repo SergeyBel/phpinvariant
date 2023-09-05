@@ -3,11 +3,11 @@
 namespace PhpInvariant\Invariants\examples\generators\Arrays;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
-use PhpInvariant\Finish\FinishCount;
+use PhpInvariant\Finish\FinishRuns;
 
 class AssociativeArrayInvariant extends BaseInvariant
 {
-    #[FinishCount(5)]
+    #[FinishRuns(5)]
     public function checkAssociativeArray()
     {
 

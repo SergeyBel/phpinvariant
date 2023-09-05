@@ -3,7 +3,7 @@
 namespace PhpInvariant\CheckMethodRunner\Condition;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
-use PhpInvariant\Finish\FinishTime;
+use PhpInvariant\Finish\FinishSeconds;
 use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
 use PhpInvariant\CheckMethodRunner\CheckMethodCaller;
 use ReflectionException;
@@ -20,7 +20,7 @@ class TimeCondition
     /**
      * @throws ReflectionException
      */
-    public function run(BaseInvariant $checkClass, ReflectionMethod $checkMethod, FinishTime $finishCondition): MethodRunResult
+    public function run(BaseInvariant $checkClass, ReflectionMethod $checkMethod, FinishSeconds $finishCondition): MethodRunResult
     {
         $result = new MethodRunResult();
         $start = time();

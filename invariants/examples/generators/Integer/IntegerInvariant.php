@@ -3,11 +3,11 @@
 namespace PhpInvariant\Invariants\examples\generators\Integer;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
-use PhpInvariant\Finish\FinishCount;
+use PhpInvariant\Finish\FinishRuns;
 
 class IntegerInvariant extends BaseInvariant
 {
-    #[FinishCount(10)]
+    #[FinishRuns(10)]
     public function checkInteger()
     {
         $x = $this->provider->integer(50, 100)->get();

@@ -3,11 +3,11 @@
 namespace PhpInvariant\Invariants\examples\finish;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
-use PhpInvariant\Finish\FinishTime;
+use PhpInvariant\Finish\FinishSeconds;
 
 class FinishTimeInvariant extends BaseInvariant
 {
-    #[FinishTime(1)]
+    #[FinishSeconds(1)]
     public function checkInteger()
     {
         $x = $this->provider->integer(0, 100)->get();

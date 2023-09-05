@@ -3,11 +3,11 @@
 namespace PhpInvariant\Invariants\examples\generators\Arrays;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
-use PhpInvariant\Finish\FinishCount;
+use PhpInvariant\Finish\FinishRuns;
 
 class ElementsInvariant extends BaseInvariant
 {
-    #[FinishCount(5)]
+    #[FinishRuns(5)]
     public function checkElements()
     {
         $elements = $this->provider->elements([10, 20, 30, 40], 2)->get();
