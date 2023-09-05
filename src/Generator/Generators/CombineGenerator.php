@@ -1,15 +1,19 @@
 <?php
 
-namespace PhpInvariant\Generator;
+namespace PhpInvariant\Generator\Generators;
 
 use PhpInvariant\Random\Random;
 
 class CombineGenerator extends Random implements GeneratorInterface
 {
+    /**
+      * @var array<GeneratorInterface>
+      */
     private array $generators;
 
+
     /**
-     * @param array $generators
+     * @param array<GeneratorInterface> $generators
      */
     public function __construct(array $generators)
     {

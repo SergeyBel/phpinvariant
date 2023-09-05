@@ -1,16 +1,20 @@
 <?php
 
-namespace PhpInvariant\Generator;
+namespace PhpInvariant\Generator\Generators;
 
 use PhpInvariant\Random\Random;
 
 class ElementsGenerator extends Random implements GeneratorInterface
 {
+    /**
+     * @var array<mixed>
+     */
     private array $data;
     private int $count;
 
+
     /**
-     * @param array $data
+     * @param array<mixed> $data
      */
     public function __construct(array $data, int $count)
     {
@@ -18,11 +22,13 @@ class ElementsGenerator extends Random implements GeneratorInterface
         $this->count = $count;
     }
 
+    /**
+     * @return array<mixed>
+     */
     public function get(): array
     {
         $elements = [];
-        for ($i = 0; $i < $this->count; $i++)
-        {
+        for ($i = 0; $i < $this->count; $i++) {
             $elements[] = $this->getArrayElement($this->data);
         }
 

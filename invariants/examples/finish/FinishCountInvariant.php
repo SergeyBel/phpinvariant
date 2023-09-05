@@ -4,13 +4,14 @@ namespace PhpInvariant\Invariants\examples\finish;
 
 use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishCount;
-use PhpInvariant\Generator\Type\Integer\IntegerType;
 
 class FinishCountInvariant extends BaseInvariant
 {
     #[FinishCount(2)]
-    public function checkFalse(#[IntegerType(0, 100)] int $x)
+    public function checkInteger()
     {
+        $x = $this->provider->integer(0, 100)->get();
         $this->assertFalse($x < 0);
+        $this->assertLessOrEqual($x, 100);
     }
 }

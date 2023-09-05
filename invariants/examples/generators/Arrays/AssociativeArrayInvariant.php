@@ -20,7 +20,6 @@ class AssociativeArrayInvariant extends BaseInvariant
 
         $this->assertSame(count($associativeArray), 10);
         foreach ($associativeArray as $key => $value) {
-            //dump($value);
             $this->assertGreaterOrEqual(strlen($key), 1);
             $this->assertLessOrEqual(strlen($key), 10);
             $this->assertTrue(is_array($value));

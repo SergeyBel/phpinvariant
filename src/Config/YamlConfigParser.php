@@ -6,15 +6,9 @@ use PhpInvariant\Config\Exception\ConfigParseException;
 use PhpInvariant\Runner\Dto\RunnerConfiguration;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
-use PhpInvariant\DependencyInjection\Container;
 
 class YamlConfigParser
 {
-    public function __construct(
-        private Container $container,
-    ) {
-    }
-
     public function parse(string $filePath): RunnerConfiguration
     {
         try {

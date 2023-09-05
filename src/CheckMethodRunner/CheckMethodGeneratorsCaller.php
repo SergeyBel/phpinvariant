@@ -26,6 +26,9 @@ class CheckMethodGeneratorsCaller
         $result = new CheckMethodCallResult();
 
         try {
+            /**
+             * @throws PhpInvariantAssertException
+             */
             $checkMethod->invoke($checkClass);
         } catch (PhpInvariantAssertException $exception) {
             $result->addErrorRun(

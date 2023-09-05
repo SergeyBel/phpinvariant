@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpInvariant\Generator;
+namespace PhpInvariant\Generator\Generators;
 
 use PhpInvariant\Random\Random;
 
@@ -9,6 +9,9 @@ class StringGenerator extends Random implements GeneratorInterface
     private int $minLength;
     private int $maxLength;
 
+    /**
+     * @var array<string>
+     */
     private array $dictionary;
 
 
@@ -34,13 +37,17 @@ class StringGenerator extends Random implements GeneratorInterface
     }
 
 
-    public function dictionary(array $dictionary)
+    /**
+     * @param array<string> $dictionary
+     * @return $this
+     */
+    public function dictionary(array $dictionary): self
     {
         $this->dictionary = $dictionary;
         return $this;
     }
 
-    public function ascii()
+    public function ascii(): self
     {
         $dictionary = [];
         for ($c = 0; $c <= 255; $c++) {
@@ -50,12 +57,12 @@ class StringGenerator extends Random implements GeneratorInterface
         return $this->dictionary($dictionary);
     }
 
-    public function alphabetic()
+    public function alphabetic(): self
     {
         return $this->dictionary(array_merge(range('A', 'Z'), range('a', 'z')));
     }
 
-    public function unicode()
+    public function unicode(): self
     {
         $dictionary = [];
         for ($i = 0; $i < 0xffff; $i++) {
@@ -63,8 +70,4 @@ class StringGenerator extends Random implements GeneratorInterface
         }
         return $this->dictionary($dictionary);
     }
-
-
-
-
 }

@@ -2,10 +2,10 @@
 
 namespace PhpInvariant\CheckMethodRunner\Condition;
 
+use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\Finish\FinishTime;
 use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;
 use PhpInvariant\CheckMethodRunner\CheckMethodCaller;
-use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
 
@@ -18,15 +18,14 @@ class TimeCondition
 
 
     /**
-     * @param array<mixed> $types
      * @throws ReflectionException
      */
-    public function run(ReflectionClass $checkClass, ReflectionMethod $checkMethod, array $types, FinishTime $finishCondition): MethodRunResult
+    public function run(BaseInvariant $checkClass, ReflectionMethod $checkMethod, FinishTime $finishCondition): MethodRunResult
     {
         $result = new MethodRunResult();
         $start = time();
         while (time() - $start < $finishCondition->getSecondsDelay()) {
-            $this->methodRunner->callMethod($checkClass, $checkMethod, $types, $result);
+            $this->methodRunner->callMethod($checkClass, $checkMethod, $result);
         }
         return $result;
     }

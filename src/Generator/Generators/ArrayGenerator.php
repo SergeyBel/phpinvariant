@@ -1,8 +1,7 @@
 <?php
 
-namespace PhpInvariant\Generator;
+namespace PhpInvariant\Generator\Generators;
 
-use PhpInvariant\Generator\Type\Arrays\AssociativeArrayType;
 use PhpInvariant\Random\Random;
 
 class ArrayGenerator extends Random implements GeneratorInterface
@@ -10,13 +9,10 @@ class ArrayGenerator extends Random implements GeneratorInterface
     private int $count;
     private GeneratorInterface $value;
 
-    private ?GeneratorInterface $key= null;
+    private ?GeneratorInterface $key = null;
     private int $depth = 1;
 
-    /**
-     * @param int $count
-     * @param GeneratorInterface $generator
-     */
+
     public function __construct(int $count, GeneratorInterface $generator)
     {
         $this->count = $count;
@@ -24,6 +20,9 @@ class ArrayGenerator extends Random implements GeneratorInterface
     }
 
 
+    /**
+     * @return array<mixed>
+     */
     public function get(): array
     {
         if (!is_null($this->key)) {
@@ -41,18 +40,22 @@ class ArrayGenerator extends Random implements GeneratorInterface
 
 
 
-    public function key(GeneratorInterface $key)
+    public function key(GeneratorInterface $key): self
     {
         $this->key = $key;
         return $this;
     }
 
-    public function depth(int $depth)
+    public function depth(int $depth): self
     {
         $this->depth = $depth;
         return $this;
     }
 
+    /**
+     * @param array<mixed> $current
+     * @return array<mixed>
+     */
     private function recursiveGenerate(array $current, int $depth): array
     {
 

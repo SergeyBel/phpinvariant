@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpInvariant\Generator;
+namespace PhpInvariant\Generator\Generators;
 
 interface GeneratorInterface
 {

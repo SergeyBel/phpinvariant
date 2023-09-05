@@ -9,13 +9,17 @@ abstract class BaseInvariant extends Asserts
     protected Provider $provider;
 
 
-    public function configure()
+    public function configure(): self
     {
         $this->provider = new Provider();
+        return $this;
     }
 
 
-    public function getArgs()
+    /**
+     * @return array<string>
+     */
+    public function getArgs(): array
     {
         return [];
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpInvariant\Generator;
+namespace PhpInvariant\Generator\Generators;
 
 use PhpInvariant\Random\Random;
 
@@ -36,7 +36,7 @@ class FloatGenerator extends Random implements GeneratorInterface
     }
 
 
-    public function decimals(int $decimals)
+    public function decimals(int $decimals): self
     {
         $this->decimals = $decimals;
         return $this;
