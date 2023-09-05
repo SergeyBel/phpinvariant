@@ -37,4 +37,9 @@ class Provider
     {
         return new ElementsGenerator($data, $count);
     }
+
+    public function combine(array $generators): CombineGenerator
+    {
+        return new CombineGenerator($generators);
+    }
 }

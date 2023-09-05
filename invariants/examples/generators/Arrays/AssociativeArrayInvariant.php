@@ -11,13 +11,19 @@ class AssociativeArrayInvariant extends BaseInvariant
     public function checkAssociativeArray()
     {
 
-        $associativeArray = $this->provider->array(10, $this->provider->string(50, 100))->key($this->provider->string(1, 10))->depth(2)->get();
+        $associativeArray = $this->provider
+            ->array(10, $this->provider->integer(1, 10))
+            ->key($this->provider->string(2, 3))
+            ->depth(1)
+            ->get();
+
 
         $this->assertSame(count($associativeArray), 10);
         foreach ($associativeArray as $key => $value) {
+            //dump($value);
             $this->assertGreaterOrEqual(strlen($key), 1);
             $this->assertLessOrEqual(strlen($key), 10);
-            $this->assertTrue(is_string($value));
+            $this->assertTrue(is_array($value));
         }
     }
 
