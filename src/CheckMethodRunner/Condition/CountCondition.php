@@ -22,7 +22,7 @@ class CountCondition
     public function run(BaseInvariant $checkClass, ReflectionMethod $checkMethod, FinishRuns $finishCondition): MethodRunResult
     {
         $result = new MethodRunResult();
-        for ($i = 0; $i < $finishCondition->getCount(); $i++) {
+        for ($i = 0; $i < $finishCondition->getRuns(); $i++) {
             $this->methodRunner->callMethod($checkClass, $checkMethod, $result);
         }
         return $result;

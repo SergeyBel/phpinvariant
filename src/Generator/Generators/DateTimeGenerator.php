@@ -3,9 +3,8 @@
 namespace PhpInvariant\Generator\Generators;
 
 use DateTimeImmutable;
-use PhpInvariant\Random\Random;
 
-class DateTimeGenerator extends Random implements GeneratorInterface
+class DateTimeGenerator extends BaseGenerator
 {
     private DateTimeImmutable $from;
     private DateTimeImmutable $to;
@@ -19,8 +18,16 @@ class DateTimeGenerator extends Random implements GeneratorInterface
 
     public function get(): DateTimeImmutable
     {
+        $value = (new DateTimeImmutable())->setTimestamp(
+            $this->getInt(
+                $this->from->getTimestamp(),
+                $this->to->getTimestamp()
+            )
+        );
 
-        return (new DateTimeImmutable())->setTimestamp($this->getInt($this->from->getTimestamp(), $this->to->getTimestamp()));
+
+        $this->register($value);
+        return $value;
     }
 
     public function from(DateTimeImmutable $from): self

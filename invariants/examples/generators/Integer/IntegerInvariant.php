@@ -12,7 +12,6 @@ class IntegerInvariant extends BaseInvariant
     {
         $x = $this->provider->integer(50, 100)->get();
 
-
         $this->assertTrue(is_integer($x));
         $this->assertLessOrEqual($x, 100);
         $this->assertGreaterOrEqual($x, 50);

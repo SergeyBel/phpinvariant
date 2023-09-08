@@ -2,9 +2,7 @@
 
 namespace PhpInvariant\Generator\Generators;
 
-use PhpInvariant\Random\Random;
-
-class ElementsGenerator extends Random implements GeneratorInterface
+class ElementsGenerator extends BaseGenerator
 {
     /**
      * @var array<mixed>
@@ -32,6 +30,7 @@ class ElementsGenerator extends Random implements GeneratorInterface
             $elements[] = $this->getArrayElement($this->data);
         }
 
+        $this->register($elements);
         return $elements;
     }
 

@@ -6,6 +6,7 @@ use PhpInvariant\BaseInvariant\BaseInvariant;
 use PhpInvariant\BaseInvariant\Exception\PhpInvariantAssertException;
 use PhpInvariant\CheckMethodRunner\Dto\ErrorRunResult;
 use PhpInvariant\CheckMethodRunner\Dto\CheckMethodCallResult;
+use PhpInvariant\Registrator\ParametersRegistrator;
 use PHPUnit\Framework\ExpectationFailedException;
 use ReflectionMethod;
 use ReflectionException;
@@ -24,6 +25,7 @@ class CheckMethodGeneratorsCaller
     {
 
         $result = new CheckMethodCallResult();
+        ParametersRegistrator::clear();
 
         try {
             /**
@@ -36,7 +38,7 @@ class CheckMethodGeneratorsCaller
                     get_class($checkClass),
                     $checkMethod->getName(),
                     $exception->getMessage(),
-                    $checkClass->getArgs()
+                    ParametersRegistrator::get()
                 )
             );
         }

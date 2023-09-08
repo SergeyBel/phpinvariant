@@ -2,13 +2,14 @@
 
 namespace PhpInvariant\Generator\Generators;
 
-use PhpInvariant\Random\Random;
-
-class BooleanGenerator extends Random implements GeneratorInterface
+class BooleanGenerator extends BaseGenerator
 {
     public function get(): bool
     {
-        return (bool)($this->getInt(0, 1));
+        $value = (bool)($this->getInt(0, 1));
+
+        $this->register($value);
+        return $value;
     }
 
 }

@@ -2,9 +2,7 @@
 
 namespace PhpInvariant\Generator\Generators;
 
-use PhpInvariant\Random\Random;
-
-class StringGenerator extends Random implements GeneratorInterface
+class StringGenerator extends BaseGenerator
 {
     private int $minLength;
     private int $maxLength;
@@ -29,9 +27,12 @@ class StringGenerator extends Random implements GeneratorInterface
 
         $text = '';
         for ($i = 0; $i < $length; $i++) {
-            $text .= $this->getArrayElement($this->dictionary);
+            $element = $this->getArrayElement($this->dictionary);
+            //dump(mb_ord($element));
+            $text .= $element;
         }
 
+        $this->register($text);
         return $text;
 
     }

@@ -2,9 +2,7 @@
 
 namespace PhpInvariant\Generator\Generators;
 
-use PhpInvariant\Random\Random;
-
-class CombineGenerator extends Random implements GeneratorInterface
+class CombineGenerator extends BaseGenerator
 {
     /**
       * @var array<GeneratorInterface>
@@ -24,6 +22,7 @@ class CombineGenerator extends Random implements GeneratorInterface
     public function get(): mixed
     {
         $generator = $this->getArrayElement($this->generators);
+
         return $generator->get();
     }
 

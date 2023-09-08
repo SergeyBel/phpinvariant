@@ -2,9 +2,7 @@
 
 namespace PhpInvariant\Generator\Generators;
 
-use PhpInvariant\Random\Random;
-
-class ArrayGenerator extends Random implements GeneratorInterface
+class ArrayGenerator extends BaseGenerator
 {
     private int $count;
     private GeneratorInterface $value;
@@ -34,6 +32,7 @@ class ArrayGenerator extends Random implements GeneratorInterface
             $data[] = $this->value->get();
         }
 
+        $this->register($data);
         return $data;
 
     }

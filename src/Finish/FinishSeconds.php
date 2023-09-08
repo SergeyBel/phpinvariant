@@ -7,17 +7,17 @@ use Attribute;
 #[Attribute]
 class FinishSeconds implements FinishInterface
 {
-    private int $secondsDelay;
+    private int $seconds;
 
 
-    public function __construct(int $secondsDelay)
+    public function __construct(int $seconds)
     {
-        $this->secondsDelay = $secondsDelay;
+        $this->seconds = $seconds;
     }
 
 
-    public function getSecondsDelay(): int
+    public function getSeconds(): int
     {
-        return $this->secondsDelay;
+        return $this->seconds;
     }
 }

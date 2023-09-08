@@ -2,9 +2,7 @@
 
 namespace PhpInvariant\Generator\Generators;
 
-use PhpInvariant\Random\Random;
-
-class FloatGenerator extends Random implements GeneratorInterface
+class FloatGenerator extends BaseGenerator
 {
     private float $min;
     private float $max;
@@ -32,7 +30,10 @@ class FloatGenerator extends Random implements GeneratorInterface
 
         $realPart = $this->getInt(0, $realMax) / $denominator;
 
-        return round($integerPart + floatval($realPart), $this->decimals);
+        $value = round($integerPart + floatval($realPart), $this->decimals);
+
+        $this->register($value);
+        return $value;
     }
 
 

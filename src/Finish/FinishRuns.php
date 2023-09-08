@@ -7,17 +7,17 @@ use Attribute;
 #[Attribute]
 class FinishRuns implements FinishInterface
 {
-    private int $count;
+    private int $runs;
 
 
-    public function __construct(int $count)
+    public function __construct(int $runs)
     {
-        $this->count = $count;
+        $this->runs = $runs;
     }
 
 
-    public function getCount(): int
+    public function getRuns(): int
     {
-        return $this->count;
+        return $this->runs;
     }
 }

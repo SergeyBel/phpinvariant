@@ -15,14 +15,4 @@ abstract class BaseInvariant extends Asserts
         return $this;
     }
 
-
-    /**
-     * @return array<string>
-     */
-    public function getArgs(): array
-    {
-        return [];
-    }
-
-
 }

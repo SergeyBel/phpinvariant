@@ -2,9 +2,7 @@
 
 namespace PhpInvariant\Generator\Generators;
 
-use PhpInvariant\Random\Random;
-
-class IntegerGenerator extends Random implements GeneratorInterface
+class IntegerGenerator extends BaseGenerator
 {
     private int $min;
     private int $max;
@@ -19,7 +17,10 @@ class IntegerGenerator extends Random implements GeneratorInterface
 
     public function get(): int
     {
-        return $this->getInt($this->min, $this->max);
+        $value = $this->getInt($this->min, $this->max);
+        $this->register($value);
+
+        return $value;
     }
 
 

@@ -24,7 +24,7 @@ class TimeCondition
     {
         $result = new MethodRunResult();
         $start = time();
-        while (time() - $start < $finishCondition->getSecondsDelay()) {
+        while (time() - $start < $finishCondition->getSeconds()) {
             $this->methodRunner->callMethod($checkClass, $checkMethod, $result);
         }
         return $result;
