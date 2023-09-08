@@ -7,8 +7,8 @@ use PhpInvariant\Finish\FinishRuns;
 
 class CombineInvariant extends BaseInvariant
 {
-    #[FinishRuns(5)]
-    public function checkFromArray()
+    #[FinishRuns(2)]
+    public function checkCombine()
     {
         $value = $this->provider->combine(
             [

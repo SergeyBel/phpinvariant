@@ -11,6 +11,7 @@ class StringInvariant extends BaseInvariant
     public function checkString()
     {
         $str = $this->provider->string(5, 10)->dictionary(['a', 'b', 'c'])->get();
+
         $this->assertTrue(is_string($str));
         $this->assertLessOrEqual(strlen($str), 10);
         $this->assertGreaterOrEqual(strlen($str), 5);

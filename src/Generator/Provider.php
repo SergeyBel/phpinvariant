@@ -10,6 +10,7 @@ use PhpInvariant\Generator\Generators\ElementsGenerator;
 use PhpInvariant\Generator\Generators\FloatGenerator;
 use PhpInvariant\Generator\Generators\GeneratorInterface;
 use PhpInvariant\Generator\Generators\IntegerGenerator;
+use PhpInvariant\Generator\Generators\ShuffleGenerator;
 use PhpInvariant\Generator\Generators\StringGenerator;
 
 class Provider
@@ -57,5 +58,13 @@ class Provider
     public function combine(array $generators): CombineGenerator
     {
         return new CombineGenerator($generators);
+    }
+
+    /**
+     * @param array<mixed> $data
+     */
+    public function shuffle(array $data): ShuffleGenerator
+    {
+        return new ShuffleGenerator($data);
     }
 }

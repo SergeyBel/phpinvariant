@@ -7,7 +7,7 @@ use PhpInvariant\Registrator\ParametersRegistrator;
 
 abstract class BaseGenerator extends Random implements GeneratorInterface
 {
-    public function register(mixed $value): void
+    protected function register(mixed $value): void
     {
         $trace = debug_backtrace();
         $file = $trace[1]['file'];

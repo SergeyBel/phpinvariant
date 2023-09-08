@@ -21,21 +21,6 @@ composer require --dev sergey-bel/phpinvariant
 See [examples](https://github.com/SergeyBel/phpinvariant/tree/main/invariants/examples)
 
 
-## Provider
-Provider is a main class to generate random data
-
-This example will generate a alphabetic string with length between 5 and 10 (inclusive)
-```php
-$this->provider
-       ->string(5, 10)
-       ->alphabetic()
-       ->get();
-```
-
-## Finish conditions
-Finish conditions are used to determine when to end the check execution  
-Finish condition is specified by method attribute
-
 ## Example
 
 ```php
@@ -55,6 +40,23 @@ class IntegerInvariant extends BaseInvariant
     }
 }
 ```
+
+## Provider
+Provider is a main class to generate random data
+
+This example will generate a alphabetic string with length between 5 and 10 (inclusive)
+```php
+$this->provider
+       ->string(5, 10)
+       ->alphabetic()
+       ->get();
+```
+
+## Finish conditions
+Finish conditions are used to determine when to end the check execution  
+Finish condition is specified by method attribute
+
+
 ## Command Line Options
 `--path`    
 Specifies directory with Check classes    

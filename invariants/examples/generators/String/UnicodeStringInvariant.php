@@ -11,6 +11,7 @@ class UnicodeStringInvariant extends BaseInvariant
     public function checkString()
     {
         $str = $this->provider->string(5, 10)->unicode()->get();
+
         $this->assertTrue(is_string($str));
     }
 }

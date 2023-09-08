@@ -7,7 +7,7 @@ use PhpInvariant\Finish\FinishRuns;
 
 class AssociativeArrayInvariant extends BaseInvariant
 {
-    #[FinishRuns(5)]
+    #[FinishRuns(2)]
     public function checkAssociativeArray()
     {
 

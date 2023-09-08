@@ -11,6 +11,7 @@ class ElementsInvariant extends BaseInvariant
     public function checkElements()
     {
         $elements = $this->provider->elements([10, 20, 30, 40], 2)->get();
+
         $this->assertCount($elements, 2);
         foreach ($elements as $element) {
             $this->assertTrue(in_array($element, [10, 20, 30, 40]));

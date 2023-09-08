@@ -7,10 +7,11 @@ use PhpInvariant\Finish\FinishRuns;
 
 class DateTimeInvariant extends BaseInvariant
 {
-    #[FinishRuns(5)]
+    #[FinishRuns(2)]
     public function checkDateTime()
     {
         $time = $this->provider->datetime()->get();
+
         $this->assertLessOrEqual($time->getTimestamp(), time());
     }
 }

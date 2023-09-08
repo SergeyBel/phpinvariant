@@ -4,8 +4,13 @@ namespace PhpInvariant\Generator\Generators;
 
 class StringGenerator extends BaseGenerator
 {
+    private const ASCII = 'ascii';
+    private const UNICODE = 'unicode';
+
     private int $minLength;
     private int $maxLength;
+
+    private ?string $preDefine = null;
 
     /**
      * @var array<string>
@@ -26,10 +31,21 @@ class StringGenerator extends BaseGenerator
         $length = $this->getInt($this->minLength, $this->maxLength);
 
         $text = '';
-        for ($i = 0; $i < $length; $i++) {
-            $element = $this->getArrayElement($this->dictionary);
-            //dump(mb_ord($element));
-            $text .= $element;
+        if (count($this->dictionary) > 0) {
+            for ($i = 0; $i < $length; $i++) {
+                $element = $this->getArrayElement($this->dictionary);
+                $text .= $element;
+            }
+        } elseif ($this->preDefine === self::ASCII) {
+            for ($i = 0; $i < $length; $i++) {
+                $char = $this->getInt(0, 255);
+                $text .= chr($char);
+            }
+        } elseif ($this->preDefine === self::UNICODE) {
+            for ($i = 0; $i < $length; $i++) {
+                $char = $this->getInt(0, 0xffff);
+                $text .= mb_chr($char);
+            }
         }
 
         $this->register($text);
@@ -50,12 +66,8 @@ class StringGenerator extends BaseGenerator
 
     public function ascii(): self
     {
-        $dictionary = [];
-        for ($c = 0; $c <= 255; $c++) {
-            $dictionary[] = chr($c);
-        }
-
-        return $this->dictionary($dictionary);
+        $this->preDefine = self::ASCII;
+        return $this;
     }
 
     public function alphabetic(): self
@@ -63,12 +75,14 @@ class StringGenerator extends BaseGenerator
         return $this->dictionary(array_merge(range('A', 'Z'), range('a', 'z')));
     }
 
+    public function alphanumeric(): self
+    {
+        return $this->dictionary(array_merge(range('A', 'Z'), range('a', 'z'), range('0', '9')));
+    }
+
     public function unicode(): self
     {
-        $dictionary = [];
-        for ($i = 0; $i < 0xffff; $i++) {
-            $dictionary[] = mb_chr($i);
-        }
-        return $this->dictionary($dictionary);
+        $this->preDefine = self::UNICODE;
+        return $this;
     }
 }

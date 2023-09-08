@@ -11,6 +11,7 @@ class FloatInvariant extends BaseInvariant
     public function checkFloat()
     {
         $x = $this->provider->float(1, 10)->decimals(2)->get();
+
         $this->assertTrue(is_float($x));
         $this->assertLessOrEqual($x, 10);
         $this->assertGreaterOrEqual($x, 1);
