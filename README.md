@@ -7,8 +7,9 @@ It runs your code on customized random data and checks predefined invariants (si
 
 # Installation
 The recommended way to install PhpInvariant is through Composer
-
-`composer require --dev sergey-bel/phpinvariant`
+```
+composer require --dev sergey-bel/phpinvariant
+```
 
 # Quick start
 1. Create a folder `invariants`
@@ -20,26 +21,37 @@ The recommended way to install PhpInvariant is through Composer
 See [examples](https://github.com/SergeyBel/phpinvariant/tree/main/invariants/examples)
 
 
-## Generators
-Generators generate random data for invariants checking  
-Generator for the parameter is specified by parameter attribute
+## Provider
+Provider is a main class to generate random data
 
+This example will generate a alphabetic string with length between 5 and 10 (inclusive)
+```php
+$this->provider
+       ->string(5, 10)
+       ->alphabetic()
+       ->get();
+```
 
 ## Finish conditions
-These conditions are used to determine when to end the check execution  
+Finish conditions are used to determine when to end the check execution  
 Finish condition is specified by method attribute
 
 ## Example
+
 ```php
 class IntegerInvariant extends BaseInvariant
 {
     // run check method 10 times
-    #[FinishCount(10)]
-    public function checkSimple(#[IntegerType(90, 101)] int $x)
+    #[FinishRuns(10)]
+    public function checkInteger()
     {
-        // $x is a random integer in [90, 101]
-        // fail when $x=101
-        $this->assertTrue($x <= 100);
+        // $x is a random integer in [50, 100]
+        $x = $this->provider->integer(50, 100)->get();
+
+        $this->assertTrue(is_integer($x));
+        // fail when $x=100
+        $this->assertLessOrEqual($x, 99);
+        $this->assertGreaterOrEqual($x, 50);
     }
 }
 ```
@@ -67,21 +79,6 @@ parameters:
 A config file can be passed in `--config` option:
 
 `vendor/bin/phpinvariant run --config=phpinvariant.yml`
-
-### How to write custom generator
-PhpInvariant allows writing custom generators to generate data for you needs
-
-To write a generator you need to create two classes and add they in config file:
-1. `Type` class. This class uses as attribute and store settings for generator  
-1. `Generator` class. It generates data based on settings from `Type` class. Must implements `__invoke` method
-1. Add classes in `generators` configuration file section
-```yml
-parameters:
-   path: invariants
-
-generators:
-   Custom\CustomType: Custom\CustomGenerator
-```
 
 ## Development
 `git clone https://github.com/SergeyBel/phpinvariant.git`  
