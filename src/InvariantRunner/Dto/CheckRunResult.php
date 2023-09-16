@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpInvariant\CheckRunner\Dto;
+namespace PhpInvariant\InvariantRunner\Dto;
 
 use PhpInvariant\CheckMethodRunner\Dto\ErrorRunResult;
 use PhpInvariant\CheckMethodRunner\Dto\MethodRunResult;

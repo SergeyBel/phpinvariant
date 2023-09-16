@@ -6,7 +6,7 @@ use PhpInvariant\ClassFinder\ClassFinder;
 use PhpInvariant\FileFinder\FileFinder;
 use PhpInvariant\Runner\Dto\RunnerConfiguration;
 use PhpInvariant\Runner\Dto\RunnerResult;
-use PhpInvariant\CheckRunner\CheckRunner;
+use PhpInvariant\InvariantRunner\InvariantRunner;
 
 class Runner
 {
@@ -14,7 +14,7 @@ class Runner
         private ConfigurationApplyer $configurationApplyer,
         private FileFinder $fileFinder,
         private ClassFinder $classFinder,
-        private CheckRunner $checkRunner,
+        private InvariantRunner $checkRunner,
     ) {
     }
 
@@ -28,8 +28,9 @@ class Runner
         $result = new RunnerResult($appliedConfiguration);
 
         foreach ($invariantClasses as $invariantClass) {
-            $checkResult = $this->checkRunner->runCheck($invariantClass);
+            $checkResult = $this->checkRunner->runInvariant($invariantClass);
             $result->addCheckResult($checkResult);
+
             $appliedConfiguration->progress->step();
         }
 

@@ -3,7 +3,7 @@
 namespace PhpInvariant\Runner\Dto;
 
 use PhpInvariant\CheckMethodRunner\Dto\ErrorRunResult;
-use PhpInvariant\CheckRunner\Dto\CheckRunResult;
+use PhpInvariant\InvariantRunner\Dto\CheckRunResult;
 
 class RunnerResult
 {
