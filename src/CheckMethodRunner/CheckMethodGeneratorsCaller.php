@@ -14,28 +14,31 @@ use ReflectionException;
 class CheckMethodGeneratorsCaller
 {
     public function __construct(
+        private InvariantClassExecutor $invariantClassExecutor
     ) {
+
     }
 
     /**
      * @throws ReflectionException
      * @throws ExpectationFailedException
      */
-    public function callMethod(BaseInvariant $checkClass, ReflectionMethod $checkMethod): CheckMethodCallResult
+    public function callMethod(BaseInvariant $invariantClass, ReflectionMethod $checkMethod): CheckMethodCallResult
     {
 
         $result = new CheckMethodCallResult();
         ParametersRegistrator::clear();
 
+
         try {
-            /**
-             * @throws PhpInvariantAssertException
-             */
-            $checkMethod->invoke($checkClass);
+            $this->invariantClassExecutor->executeBefore($invariantClass);
+            $this->invariantClassExecutor->executeCheckMethod($invariantClass, $checkMethod);
+            $this->invariantClassExecutor->executeAfter($invariantClass);
+
         } catch (PhpInvariantAssertException $exception) {
             $result->addErrorRun(
                 new ErrorRunResult(
-                    get_class($checkClass),
+                    get_class($invariantClass),
                     $checkMethod->getName(),
                     $exception->getMessage(),
                     ParametersRegistrator::get()
