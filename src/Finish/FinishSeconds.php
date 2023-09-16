@@ -5,7 +5,7 @@ namespace PhpInvariant\Finish;
 use Attribute;
 
 #[Attribute]
-class FinishSeconds implements FinishInterface
+class FinishSeconds
 {
     private int $seconds;
 
